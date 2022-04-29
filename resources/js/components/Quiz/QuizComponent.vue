@@ -1,0 +1,216 @@
+<template>
+  <div>
+    <div class="tab" v-if="activePhase === 1"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "quizcomponent.vue",
+
+  data() {
+    return {
+      activePhase: 1,
+    };
+  },
+  methods: {
+    add() {
+      this.activePhase = this.activePhase + 1;
+    },
+    remove() {
+      this.activePhase = this.activePhase - 1;
+    },
+  },
+};
+</script>
+<style>
+    html {
+        font-family: "Clash Display", sans-serif;
+    }
+
+    @import url("http://fonts.cdnfonts.com/css/clash-display");
+
+    @media only screen and (min-width: 350px) {
+        body {
+            /*background-image: url("img/bg_homepage.png");*/
+            background-color: #21222a;
+            background-repeat: no-repeat;
+            background-position: top left;
+            height: 100%;
+            width: 100%;
+            font-family: "Clash Display", sans-serif;
+        }
+
+        /* AQUI TESTE */
+        .login-box {
+            text-align: center;
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .login-box h2 {
+            padding-bottom: 5%;
+            color: #ff5858;
+            text-align: center;
+            font-size: 35px;
+            text-transform: capitalize;
+        }
+
+        .login-box p {
+            padding-bottom: 5px;
+            color: #21222a;
+            text-align: left;
+        }
+
+        .login-box .user-box {}
+
+        .login-box .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #ff5858;
+            outline: none;
+            background: transparent;
+        }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #ffffff;
+            font-size: 22px;
+            text-decoration: none;
+            text-transform: capitalize;
+            overflow: hidden;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: #ff5858;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+
+        /* AQUI TERMINA O TESTE*/
+
+        .col h1 {
+            color: #ffffff;
+            text-align: left;
+            font-size: 35px;
+            font-weight: 500;
+            padding-top: 15%;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 1em;
+        }
+
+        .col h5 {
+            color: #ffffff;
+            line-height: 1.3em;
+            text-align: center;
+            font-weight: 400;
+            font-size: 20px;
+            letter-spacing: 0.1em;
+        }
+
+        .col span {
+            color: #ff5858;
+            font-size: 35px;
+        }
+
+        /* AQUI TERMINA O TESTE*/
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+        body {
+            background-image: url("img/bg_homepage.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* AQUI TESTE */
+        .login-box {
+            width: 60%;
+            padding: 40px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .login-box h2 {
+            padding-bottom: 5%;
+            color: #ff5858;
+            text-align: left;
+        }
+
+        .login-box p {
+            padding-bottom: 5px;
+            color: #21222a;
+            text-align: left;
+        }
+
+        .login-box .user-box {}
+
+        .login-box .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #21222a;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #ff5858;
+            outline: none;
+            background: transparent;
+        }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #ffffff;
+            font-size: 22px;
+            text-decoration: none;
+            text-transform: capitalize;
+            overflow: hidden;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: #ff5858;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+
+        /* AQUI TERMINA O TESTE*/
+
+        .col h1 {
+            color: #ffffff;
+            text-align: left;
+            font-size: 50px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding-left: 25%;
+            line-height: 1em;
+        }
+
+        .col h5 {
+            color: #21222a;
+            text-align: left;
+        }
+
+        .col span {
+            color: #ff5858;
+            font-size: 50px;
+        }
+
+
+    }
+
+</style>
