@@ -18,11 +18,11 @@
         font-family: "Clash Display", sans-serif;
     }
 
-    @import url("http://fonts.cdnfonts.com/css/clash-display");
+    @import url("https://fonts.cdnfonts.com/css/clash-display");
 
-    @media only screen and (min-width: 350px) {
+    @media only screen and (min-width: 320px) {
         body {
-            /*background-image: url("img/bg_homepage.png");*/
+            background-image: url("img/bg_quiz.png");
             background-color: #21222a;
             background-repeat: no-repeat;
             background-position: top left;
@@ -35,7 +35,6 @@
         .login-box {
             text-align: center;
             width: 100%;
-            padding: 35px;
             box-sizing: border-box;
             border-radius: 10px;
         }
@@ -75,14 +74,16 @@
             color: #ffffff;
             font-size: 22px;
             text-decoration: none;
-            text-transform: capitalize;
             overflow: hidden;
             transition: 1s;
             margin-top: 40px;
             letter-spacing: 1px;
-            background-color: #ff5858;
+            background-color: #ffffff;
             border-radius: 30px;
-            font-weight: 500;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
         }
 
 
@@ -121,7 +122,7 @@
 
     @media only screen and (min-width: 1200px) {
         body {
-            background-image: url("img/bg_homepage.png");
+            background-image: url("img/bg_quiz.png");
             background-size: 100%;
             background-repeat: no-repeat;
             height: 100%;
@@ -166,27 +167,29 @@
             position: relative;
             display: inline-block;
             padding: 10px 30px;
-            color: #ffffff;
+            color: #21222a;
             font-size: 22px;
-            text-decoration: none;
-            text-transform: capitalize;
             overflow: hidden;
+            text-decoration: none;
             transition: 1s;
             margin-top: 40px;
             letter-spacing: 1px;
-            background-color: #ff5858;
+            background-color: #ffffff;
             border-radius: 30px;
-            font-weight: 500;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
         }
 
 
         /* AQUI TERMINA O TESTE*/
 
         .col h1 {
-            color: #ffffff;
+            color: #21222a;
             text-align: left;
-            font-size: 50px;
-            font-weight: 500;
+            font-size: 60px;
+            font-weight: 600;
             letter-spacing: 0.7px;
             padding-left: 25%;
             line-height: 1em;
@@ -199,7 +202,7 @@
 
         .col span {
             color: #ff5858;
-            font-size: 50px;
+            font-size: 60px;
         }
 
 
@@ -209,7 +212,7 @@
 
 <body>
     <header style="height: 30px; padding-left: 100px; padding-top: 15px">
-        <a href="/"><img src="{{ asset('img/Logo.png') }}" alt="" /></a>
+        <a href="/"><img src="{{ asset('img/black_logo.png') }}" alt="" /></a>
     </header>
     <div id="app">
         @yield('content')

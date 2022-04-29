@@ -30,6 +30,7 @@ Vue.component('congratulations-vue', require('./components/Results/Congratulatio
 Vue.component('warning-vue', require('./components/Results/WarningComponent.vue').default);
 Vue.component('danger-vue', require('./components/Results/DangerComponent.vue').default);
 Vue.component('homepage-vue', require('./components/Home/HomepageComponent.vue').default);
+Vue.component('quiz-vue', require('./components/Quiz/QuizComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

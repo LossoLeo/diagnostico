@@ -29,4 +29,8 @@ Route::get('/parabens', function () {
     return view('Results/congratulations');
 });
 
+Route::get('/quiz', function () {
+    return view('Quiz/mainquiz');
+});
+
 Auth::routes();

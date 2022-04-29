@@ -43,7 +43,7 @@
                 required=""
               />
             </div>
-            <a href="#"> Fazer teste </a>
+            <a type="submit" href="/quiz"> Fazer teste </a>
           </form>
         </div>
       </div>
