@@ -122,11 +122,14 @@
     @media only screen and (min-width: 1200px) {
         body {
             background-image: url("img/bg_homepage.png");
-            background-size: 100%;
             background-repeat: no-repeat;
+            background-size: cover;
             height: 100%;
             width: 100%;
+            overflow: hidden;
         }
+
+
 
         /* AQUI TESTE */
         .login-box {

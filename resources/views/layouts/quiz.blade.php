@@ -123,11 +123,23 @@
     @media only screen and (min-width: 1200px) {
         body {
             background-image: url("img/bg_quiz.png");
-            background-size: 100%;
+            background-size: cover;
+            background-attachment: fixed;
             background-repeat: no-repeat;
             height: 100%;
             width: 100%;
         }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type=checkbox]:checked+label {
+            color: #21222a;
+            background-color: #ffffff;
+            font-style: normal;
+        }
+
 
         /* AQUI TESTE */
         .login-box {
@@ -163,24 +175,104 @@
             background: transparent;
         }
 
-        .login-box form a {
+        .login-box .row label {
             position: relative;
             display: inline-block;
             padding: 10px 30px;
             color: #21222a;
-            font-size: 22px;
+            font-size: 18px;
             overflow: hidden;
             text-decoration: none;
             transition: 1s;
             margin-top: 40px;
             letter-spacing: 1px;
-            background-color: #ffffff;
+            background-color: transparent;
             border-radius: 30px;
             border-color: #21222a;
             border-style: solid;
             border-width: 2px;
             font-weight: 600;
+            transition: 0.5s;
+            cursor: pointer;
         }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #21222a;
+            font-size: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: transparent;
+            border-radius: 30px;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .login-box button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #21222a;
+            font-size: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: transparent;
+            border-radius: 30px;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .login-box btn {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #ffffff;
+            font-size: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: #ff5858;
+            border-radius: 30px;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+
+        .login-box form a:hover {
+            -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+
 
 
         /* AQUI TERMINA O TESTE*/
@@ -188,7 +280,7 @@
         .col h1 {
             color: #21222a;
             text-align: left;
-            font-size: 60px;
+            font-size: 50px;
             font-weight: 600;
             letter-spacing: 0.7px;
             padding-left: 25%;
@@ -202,7 +294,7 @@
 
         .col span {
             color: #ff5858;
-            font-size: 60px;
+            font-size: 50px;
         }
 
 

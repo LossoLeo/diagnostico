@@ -5,7 +5,7 @@
 @section('content')
 
     <quiz-vue>
-        
+
     </quiz-vue>
 
 @endsection
