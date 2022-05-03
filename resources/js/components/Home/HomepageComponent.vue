@@ -13,50 +13,51 @@
             Descubra em poucos minutos como está o Marketing Digital da sua
             empresa e o que fazer para alavancar suas vendas em 2022
           </h5>
-          <form @submit="checkForm" novalidate="true">
-            <div class="user-box">
-              <input
-                id="name"
-                placeholder="Nome"
-                v-model="name"
-                type="text"
-                name="name"
-                required=""
-              />
-            </div>
-            <div class="user-box">
-              <input
-                id="company"
-                placeholder="Empresa"
-                type="text"
-                v-model="company"
-                name="company"
-                required=""
-              />
-            </div>
-            <div class="user-box">
-              <input
-                id="phone"
-                placeholder="Celular"
-                type="text"
-                name="phone"
-                required=""
-                v-model="myInputModel"
-                v-mask="'(##) # ####-####'"
-              />
-            </div>
-            <div class="user-box">
-              <input
-                id="email"
-                placeholder="Email"
-                type="email"
-                v-model="email"
-                name="email"
-                required=""
-              />
-            </div>
-            <a type="submit" value="Enviar" href="/quiz"> Fazer teste </a>
-          </form>
+
+          <div class="user-box">
+            <input
+              id="name"
+              placeholder="Nome"
+              v-model="name"
+              type="text"
+              name="name"
+              required=""
+            />
+          </div>
+          <div class="user-box">
+            <input
+              id="company"
+              placeholder="Empresa"
+              type="text"
+              v-model="company"
+              name="company"
+              required=""
+            />
+          </div>
+          <div class="user-box">
+            <input
+              id="phone"
+              placeholder="Celular"
+              type="text"
+              name="phone"
+              required=""
+              v-model="phone"
+              v-mask="'(##) # ####-####'"
+            />
+          </div>
+          <div class="user-box">
+            <input
+              id="email"
+              placeholder="Email"
+              type="email"
+              v-model="email"
+              name="email"
+              required=""
+            />
+          </div>
+          <button type="submit" value="Enviar" @click="validateForm">
+            Fazer teste
+          </button>
         </div>
       </div>
     </div>
@@ -65,48 +66,83 @@
 <script>
 export default {
   name: "homepage.vue",
-  data: () => ({
-    errors: [],
-    myInputModel: "",
-    name: null,
-    company: null,
-    phone: null,
-    email: null,
-  }),
+  data() {
+    return {
+      name: null,
+      company: null,
+      phone: null,
+      email: null,
+    };
+  },
 
   methods: {
-    checkForm: function (e) {
-      this.errors = [];
+    validateForm: function () {
+      if (
+        this.name != null &&
+        this.company != null &&
+        this.email != null &&
+        this.phone != null
+      ) {
+        this.$swal({
+          type: "success",
+          icon: 'success',
+          title: "Sucesso você será redirecionado para o nosso questionário",
+          text: "Responda de forma mais fiel possível para entendermos a sua empresa",
+          showConfirmButton: false,
+        }).then(this.sendFormsub());
 
-      if (!this.name) {
-        this.errors.push("O nome é obrigatório.");
+        /*this.sendFormsub();*/
+      } else {
+        this.$swal(
+          "Ops, formulário inválido",
+          "Por favor tente novamente",
+          "error"
+        );
       }
-      if (!this.company) {
-        this.errors.push("O nome da sua empresa é obrigatório.");
-      }
-      if (!this.phone) {
-        this.errors.push("Telefone é obrigatório.");
-      }
-      if (!this.email) {
-        this.errors.push("O e-mail é obrigatório.");
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push("Utilize um e-mail válido.");
-      }
-
-      if (!this.errors.length) {
-        return true;
-      }
-
-      e.preventDefault();
     },
-    validEmail: function (email) {
-      var re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+    sendFormsub: function () {
+      let payload = {
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        company: this.company,
+      };
+
+      axios
+        .post("/register-candidate", payload)
+        .then((response) => {})
+        .catch((error) => {
+          console.log("erro => ", error);
+        });
+      window.setTimeout(function () {
+        window.location.href = "/quiz";
+      }, 5500);
     },
   },
 };
 </script>
 
 <style>
+button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  color: #ffffff;
+  font-size: 22px;
+  text-decoration: none;
+  text-transform: capitalize;
+  overflow: hidden;
+  transition: 1s;
+  margin-top: 40px;
+  letter-spacing: 1px;
+  background-color: #ff5858;
+  border-radius: 30px;
+  font-weight: 500;
+  border-color: transparent;
+}
+
+.alert-in {
+  animation-name: opacity-in;
+  animation-duration: 2s;
+}
 </style>

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\QuizController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +21,8 @@ Route::get('/', function () {
     return view('Home/homepage');
 });
 
+
+
 Route::get('/cuidado', function () {
     return view('Results/warning');
 });
@@ -29,8 +35,8 @@ Route::get('/parabens', function () {
     return view('Results/congratulations');
 });
 
-Route::get('/quiz', function () {
-    return view('Quiz/mainquiz');
-});
+Route::post('/register-candidate' , [HomepageController::class , 'create']);
+Route::get('/quiz' , [QuizController::class, 'quiz']);
+
 
 Auth::routes();
