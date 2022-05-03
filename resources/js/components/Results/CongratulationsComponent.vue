@@ -17,9 +17,7 @@
           agende uma consultoria gratuita com um de nossos especialistas.
         </p>
         <p>Clique no botão abaixo para agendar um horário.</p>
-        <button class="btn" id="myButton" type="button">
-          Agende grátis
-        </button>
+        <button class="btn" id="myButton" type="button">Agende grátis</button>
       </div>
     </div>
   </div>
@@ -27,7 +25,6 @@
 <script>
 export default {
   name: "congratulations.vue",
-
 };
 </script>
 

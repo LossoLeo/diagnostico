@@ -6062,8 +6062,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "congratulations.vue"
 });
@@ -30407,7 +30405,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticStyle: { "padding-top": "10%" } }, [
     _vm.activeStep === 1
       ? _c("div", { staticClass: "tab" }, [
           _c("div", { staticClass: "row" }, [
@@ -32390,7 +32388,7 @@ var staticRenderFns = [
           _c(
             "button",
             { staticClass: "btn", attrs: { id: "myButton", type: "button" } },
-            [_vm._v("\n        Agende grátis\n      ")]
+            [_vm._v("Agende grátis")]
           ),
         ]),
       ]),

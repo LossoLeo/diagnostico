@@ -26,6 +26,8 @@
     "dependencies": {
         "sweetalert2": "^11.4.10",
         "v-mask": "^2.3.0",
+        "vue-simple-progress": "^1.1.1",
+        "vue-step-progress": "^0.3.7",
         "vue-sweetalert2": "^5.0.2"
     }
 }

@@ -20,14 +20,17 @@
 
     @import url("http://fonts.cdnfonts.com/css/clash-display");
 
+
     @media only screen and (min-width: 350px) {
         body {
-            background-image: url("img/bg_congratulations.png");
+            background-image: url("img/bg_congratulations2.png");
             background-color: #21222a;
             background-repeat: no-repeat;
-            background-position: top left;
+            background-position: center;
+            -webkit-mask-size: auto;
             height: 100%;
             width: 100%;
+            overflow: hidden;
             font-family: "Clash Display", sans-serif;
         }
 
@@ -41,26 +44,23 @@
             text-align: center;
         }
 
-        .heading {
+        .heading h1{
             text-align: center;
-            color: White;
+            color: #ff5858;
+            font-size: 55px;
+            padding-bottom: 3%;
+            padding-top: 8%;
+            font-weight: 600;
+            letter-spacing: 5px;
         }
 
         p {
             padding-right: 5%;
             padding-left: 5%;
             padding-bottom: 2%;
-            font-size: 22px;
+            font-size: 20px;
             text-align: center;
-            color: #ff5858;
-        }
-
-        h1 {
-            font-size: 60px;
-            padding-bottom: 3%;
-            padding-top: 3%;
-            font-weight: 600;
-            letter-spacing: 5px;
+            color: white;
         }
 
         .btn {
@@ -78,7 +78,7 @@
         }
     }
 
-    @media only screen and (min-width: 1920px) {
+    @media only screen and (min-width: 1200px) {
         body {
             background-image: url("img/bg_congratulations.png");
             background-repeat: no-repeat;
@@ -148,7 +148,7 @@
 
 <body>
     <header style="height: 30px; padding-left: 100px">
-        <a href="/"><img src="{{ asset('img/Logo.png') }}" alt=""/></a>
+        <a href="/"><img src="{{ asset('img/Logo.png') }}" alt="" /></a>
     </header>
     <div id="app">
         @yield('content')

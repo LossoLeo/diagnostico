@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top: 10%;">
     <div class="tab" v-if="activeStep === 1">
       <div class="row">
         <div class="col" style="align-self: center">

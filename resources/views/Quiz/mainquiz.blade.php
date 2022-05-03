@@ -6,6 +6,7 @@
 
     <quiz-vue>
 
+
     </quiz-vue>
 
 @endsection
