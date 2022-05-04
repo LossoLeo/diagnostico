@@ -30,7 +30,6 @@
             -webkit-mask-size: auto;
             height: 100%;
             width: 100%;
-            overflow: hidden;
             font-family: "Clash Display", sans-serif;
         }
 

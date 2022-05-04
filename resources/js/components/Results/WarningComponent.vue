@@ -18,7 +18,13 @@
           a traçar um bom plano, basta clicar no botão abaixo para agendar um
           horário.
         </p>
-        <button class="btn" id="myButton" type="button">Agende grátis</button>
+        <a
+          target="_blank"
+          href="https://api.whatsapp.com/send?phone=5542988540714&text=Minha%20empresa%20est%C3%A1%20com%20alguns%20problemas%20em%20rela%C3%A7%C3%A3o%20ao%20meio%20digital%2C%20e%20eu%20gostaria%20de%20melhor%C3%A1-los."
+          ><button class="btn" id="myButton" type="button">
+            Agende grátis
+          </button></a
+        >
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 10%;">
+  <div>
     <div class="tab" v-if="activeStep === 1">
       <div class="row">
         <div class="col" style="align-self: center">
@@ -7,6 +7,7 @@
             Se um cliente digitar o segmento da sua empresa no
             <span>google</span> o que ele vai encontrar?
           </h1>
+          <h1>1 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -33,6 +34,7 @@
             Sua empresa possui um
             <span>plano</span> para aumentar o faturamento através da internet?
           </h1>
+          <h1>2 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -58,6 +60,7 @@
             Qual
             <span>setor</span> de atuação?
           </h1>
+          <h1>3 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -159,6 +162,7 @@
             Em quais
             <span>redes sociais</span> a sua empresa está presente?
           </h1>
+          <h1>4 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -237,6 +241,7 @@
             Você está ativo nas suas
             <span>redes sociais</span> ?
           </h1>
+          <h1>5 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -256,6 +261,7 @@
             Sua empresa investe em
             <span>gestão de tráfego</span> pago?
           </h1>
+          <h1>6 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -277,6 +283,7 @@
             Quanto a sua empresa investe em
             <span>tráfego pago</span> ?
           </h1>
+          <h1>7 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -298,6 +305,7 @@
             Quais desses
             <span>conceitos</span> você conhece?
           </h1>
+          <h1>8 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -385,6 +393,7 @@
             Quantos % do seu
             <span>faturamento</span> vem da internet hoje?
           </h1>
+          <h1>9 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -406,6 +415,7 @@
             Seu
             <span>site</span> possui otimização e está atualizado?
           </h1>
+          <h1>10 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -435,6 +445,7 @@
             ferramentas de <span>marketing digital</span> na sua estratégia
             comercial?
           </h1>
+          <h1>11 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
@@ -485,7 +496,7 @@ export default {
         if (this.sum <= 10) {
           return (location.href = "/parabens");
         }
-        if (this.sum >= 10 && this.sum <= 14) {
+        if (this.sum > 10 && this.sum <= 14) {
           return (location.href = "/cuidado");
         }
         if (this.sum >= 15) {

@@ -20,7 +20,7 @@
 
     @import url("http://fonts.cdnfonts.com/css/clash-display");
 
-    @media only screen and (min-width: 350px) {
+    @media only screen and (min-width: 320px) {
         body {
             /*background-image: url("img/bg_homepage.png");*/
             background-color: #21222a;
@@ -119,14 +119,13 @@
 
     }
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1350px) {
         body {
             background-image: url("img/bg_homepage.png");
             background-repeat: no-repeat;
             background-size: cover;
             height: 100%;
             width: 100%;
-            overflow: hidden;
         }
 
 

@@ -5484,7 +5484,7 @@ __webpack_require__.r(__webpack_exports__);
         this.$swal({
           type: "success",
           icon: 'success',
-          title: "Sucesso você será redirecionado para o nosso questionário",
+          title: "Muito obrigado,você será redirecionado para o nosso questionário em instantes.",
           text: "Responda de forma mais fiel possível para entendermos a sua empresa",
           showConfirmButton: false
         }).then(this.sendFormsub());
@@ -5986,6 +5986,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "quizcomponent.vue",
   model: {
@@ -6010,7 +6021,7 @@ __webpack_require__.r(__webpack_exports__);
           return location.href = "/parabens";
         }
 
-        if (this.sum >= 10 && this.sum <= 14) {
+        if (this.sum > 10 && this.sum <= 14) {
           return location.href = "/cuidado";
         }
 
@@ -6109,6 +6120,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "danger.vue"
 });
@@ -6126,6 +6143,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -30405,7 +30428,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { "padding-top": "10%" } }, [
+  return _c("div", [
     _vm.activeStep === 1
       ? _c("div", { staticClass: "tab" }, [
           _c("div", { staticClass: "row" }, [
@@ -32167,6 +32190,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("google")]),
           _vm._v(" o que ele vai encontrar?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("1 / 11")]),
       ]
     )
   },
@@ -32183,6 +32208,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("plano")]),
           _vm._v(" para aumentar o faturamento através da internet?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("2 / 11")]),
       ]
     )
   },
@@ -32199,6 +32226,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("setor")]),
           _vm._v(" de atuação?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("3 / 11")]),
       ]
     )
   },
@@ -32215,6 +32244,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("redes sociais")]),
           _vm._v(" a sua empresa está presente?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("4 / 11")]),
       ]
     )
   },
@@ -32231,6 +32262,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("redes sociais")]),
           _vm._v(" ?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("5 / 11")]),
       ]
     )
   },
@@ -32247,6 +32280,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("gestão de tráfego")]),
           _vm._v(" pago?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("6 / 11")]),
       ]
     )
   },
@@ -32263,6 +32298,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("tráfego pago")]),
           _vm._v(" ?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("7 / 11")]),
       ]
     )
   },
@@ -32279,6 +32316,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("conceitos")]),
           _vm._v(" você conhece?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("8 / 11")]),
       ]
     )
   },
@@ -32295,6 +32334,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("faturamento")]),
           _vm._v(" vem da internet hoje?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("9 / 11")]),
       ]
     )
   },
@@ -32311,6 +32352,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("site")]),
           _vm._v(" possui otimização e está atualizado?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("10 / 11")]),
       ]
     )
   },
@@ -32331,6 +32374,8 @@ var staticRenderFns = [
           _c("span", [_vm._v("marketing digital")]),
           _vm._v(" na sua estratégia\n          comercial?\n        "),
         ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("11 / 11")]),
       ]
     )
   },
@@ -32386,9 +32431,23 @@ var staticRenderFns = [
           _c("p", [_vm._v("Clique no botão abaixo para agendar um horário.")]),
           _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn", attrs: { id: "myButton", type: "button" } },
-            [_vm._v("Agende grátis")]
+            "a",
+            {
+              attrs: {
+                target: "_blank",
+                href: "https://api.whatsapp.com/send?phone=5542988540714&text=Minha%20empresa%20est%C3%A1%20muito%20bem%20no%20meio%20digital%2C%20mas%20tenho%20certeza%20que%20podemos%20melhorar.",
+              },
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn",
+                  attrs: { id: "myButton", type: "button" },
+                },
+                [_vm._v("Agende grátis")]
+              ),
+            ]
           ),
         ]),
       ]),
@@ -32450,9 +32509,23 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn", attrs: { id: "myButton", type: "button" } },
-            [_vm._v("Agende grátis")]
+            "a",
+            {
+              attrs: {
+                target: "_blank",
+                href: "https://api.whatsapp.com/send?phone=5542988540714&text=Minha%20empresa%20est%C3%A1%20em%20estado%20grave%20no%20ambiente%20digital.%20Preciso%20de%20ajuda%20urgente%20para%20alavancar%20o%20meu%20neg%C3%B3cio.%20",
+              },
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn",
+                  attrs: { id: "myButton", type: "button" },
+                },
+                [_vm._v("\n          Agende grátis\n        ")]
+              ),
+            ]
           ),
         ]),
       ]),
@@ -32508,9 +32581,23 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c(
-            "button",
-            { staticClass: "btn", attrs: { id: "myButton", type: "button" } },
-            [_vm._v("Agende grátis")]
+            "a",
+            {
+              attrs: {
+                target: "_blank",
+                href: "https://api.whatsapp.com/send?phone=5542988540714&text=Minha%20empresa%20est%C3%A1%20com%20alguns%20problemas%20em%20rela%C3%A7%C3%A3o%20ao%20meio%20digital%2C%20e%20eu%20gostaria%20de%20melhor%C3%A1-los.",
+              },
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn",
+                  attrs: { id: "myButton", type: "button" },
+                },
+                [_vm._v("\n          Agende grátis\n        ")]
+              ),
+            ]
           ),
         ]),
       ]),

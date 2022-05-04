@@ -20,15 +20,47 @@
 
     @import url("https://fonts.cdnfonts.com/css/clash-display");
 
-    @media only screen and (max-width: 1099px) {
+    @media only screen and (min-width: 350px) {
         body {
             background-image: url("img/bg_quiz.png");
             background-color: #21222a;
             background-repeat: no-repeat;
             background-position: top left;
+            background: center;
             height: 100%;
             width: 100%;
             font-family: "Clash Display", sans-serif;
+        }
+
+        .login-box .row label {
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+            color: #21222a;
+            font-size: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 1s;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            background-color: transparent;
+            border-radius: 30px;
+            border-color: #21222a;
+            border-style: solid;
+            border-width: 2px;
+            font-weight: 600;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type=checkbox]:checked+label {
+            color: #21222a;
+            background-color: grey;
+            font-style: normal;
         }
 
         .row {
@@ -123,7 +155,7 @@
 
     }
 
-    @media only screen and (min-width: 1100px) {
+    @media only screen and (min-width: 930px) {
         body {
             background-image: url("img/bg_quiz.png");
             background-size: cover;
@@ -132,6 +164,7 @@
             height: 100%;
             width: 100%;
         }
+
         .row {
             display: flex;
         }

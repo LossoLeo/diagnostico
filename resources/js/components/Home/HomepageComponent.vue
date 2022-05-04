@@ -86,7 +86,7 @@ export default {
         this.$swal({
           type: "success",
           icon: 'success',
-          title: "Sucesso você será redirecionado para o nosso questionário",
+          title: "Muito obrigado,você será redirecionado para o nosso questionário em instantes.",
           text: "Responda de forma mais fiel possível para entendermos a sua empresa",
           showConfirmButton: false,
         }).then(this.sendFormsub());
