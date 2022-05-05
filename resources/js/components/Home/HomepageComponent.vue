@@ -86,7 +86,7 @@ export default {
         this.$swal({
           type: "success",
           icon: 'success',
-          title: "Muito obrigado,você será redirecionado para o nosso questionário em instantes.",
+          title: "Muito obrigado,você será redirecionado para nosso questionário em alguns segundos.",
           text: "Responda de forma mais fiel possível para entendermos a sua empresa",
           showConfirmButton: false,
         }).then(this.sendFormsub());
@@ -110,7 +110,9 @@ export default {
 
       axios
         .post("/register-candidate", payload)
-        .then((response) => {})
+        .then((response) => {
+            fetch()
+        })
         .catch((error) => {
           console.log("erro => ", error);
         });
@@ -146,3 +148,6 @@ button {
   animation-duration: 2s;
 }
 </style>
+
+
+https://script.google.com/macros/s/AKfycbx38OY0EkTRiMmSydAPm-k7JxOaX2AP_oPo3SA2JYuLPJNwVR3ZSCqZZzwo-RNPxJWGGw/exec
