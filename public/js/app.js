@@ -6004,6 +6004,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "quizcomponent.vue",
   model: {
@@ -34145,6 +34176,23 @@ var render = function () {
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
                       _c("div", { staticClass: "row" }, [
+                        _c(
+                          "h2",
+                          {
+                            staticStyle: {
+                              "font-size": "16px",
+                              color: "#21222a",
+                              "text-align": "center",
+                              "text-transform": "none",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                *Você pode selecionar mais de 1 opção\n              "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
@@ -34581,6 +34629,23 @@ var render = function () {
                   },
                   [
                     _c("div", { staticClass: "row" }, [
+                      _c(
+                        "h2",
+                        {
+                          staticStyle: {
+                            "font-size": "16px",
+                            color: "#21222a",
+                            "text-align": "center",
+                            "text-transform": "none",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n              *Você pode selecionar mais de 1 opção\n            "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
@@ -35096,6 +35161,23 @@ var render = function () {
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
                       _c("div", { staticClass: "row" }, [
+                        _c(
+                          "h2",
+                          {
+                            staticStyle: {
+                              "font-size": "16px",
+                              color: "#21222a",
+                              "text-align": "center",
+                              "text-transform": "none",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                *Você pode selecionar mais de 1 opção\n              "
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
                         _c("input", {
                           directives: [
                             {

@@ -60,12 +60,23 @@
             Qual
             <span>setor</span> de atuação?
           </h1>
+
           <h1>3 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
               <div class="row">
+                <h2
+                  style="
+                    font-size: 16px;
+                    color: #21222a;
+                    text-align: center;
+                    text-transform: none;
+                  "
+                >
+                  *Você pode selecionar mais de 1 opção
+                </h2>
                 <input
                   type="checkbox"
                   id="physicalretail"
@@ -167,6 +178,16 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <div class="row">
+              <h2
+                style="
+                  font-size: 16px;
+                  color: #21222a;
+                  text-align: center;
+                  text-transform: none;
+                "
+              >
+                *Você pode selecionar mais de 1 opção
+              </h2>
               <input
                 type="checkbox"
                 id="facebook"
@@ -311,6 +332,16 @@
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
               <div class="row">
+                <h2
+                  style="
+                    font-size: 16px;
+                    color: #21222a;
+                    text-align: center;
+                    text-transform: none;
+                  "
+                >
+                  *Você pode selecionar mais de 1 opção
+                </h2>
                 <input
                   type="checkbox"
                   id="paidLinks"
@@ -496,8 +527,7 @@ export default {
       this.$swal({
         type: "success",
         icon: "info",
-        title:
-          "Obrigado por responder nossas perguntas.",
+        title: "Obrigado por responder nossas perguntas.",
         text: "Aguarde enquanto seu relatório está sendo gerado",
         showConfirmButton: false,
       }).then(this.add());

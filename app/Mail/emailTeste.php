@@ -29,6 +29,6 @@ class emailTeste extends Mailable
      */
     public function build()
     {
-        return $this->subject('Novo Diagnóstico')->markdown('Email/emailTeste',['candidate' => $this->candidate]);
+        return $this->subject('Nova empresa necessitando de um diagnóstico')->markdown('Email/emailTeste');
     }
 }
