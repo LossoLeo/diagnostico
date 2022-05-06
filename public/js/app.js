@@ -5467,7 +5467,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "homepage.vue",
   data: function data() {
@@ -5481,19 +5480,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     validateForm: function validateForm() {
       if (this.name != null && this.company != null && this.email != null && this.phone != null) {
-        this.$swal({
-          type: "success",
-          icon: 'success',
-          title: "Muito obrigado,você será redirecionado para nosso questionário em alguns segundos.",
-          text: "Responda de forma mais fiel possível para entendermos a sua empresa",
-          showConfirmButton: false
-        }).then(this.sendFormsub());
-        /*this.sendFormsub();*/
+        this.sendFormsub();
       } else {
         this.$swal("Ops, formulário inválido", "Por favor tente novamente", "error");
       }
     },
     sendFormsub: function sendFormsub() {
+      var _this = this;
+
       var payload = {
         name: this.name,
         email: this.email,
@@ -5501,13 +5495,20 @@ __webpack_require__.r(__webpack_exports__);
         company: this.company
       };
       axios.post("/register-candidate", payload).then(function (response) {
-        fetch();
+        _this.$swal({
+          type: "success",
+          icon: "success",
+          title: "Muito obrigado,você será redirecionado para nosso questionário em alguns segundos.",
+          text: "Responda de forma mais fiel possível para entendermos a sua empresa",
+          showConfirmButton: false
+        });
+
+        window.setTimeout(function () {
+          window.location.href = "/quiz";
+        }, 5500);
       })["catch"](function (error) {
         console.log("erro => ", error);
       });
-      window.setTimeout(function () {
-        window.location.href = "/quiz";
-      }, 5500);
     }
   }
 });
