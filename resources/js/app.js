@@ -13,6 +13,8 @@ import Vue from 'vue';
 import VueMask from 'v-mask';
 Vue.use(VueMask);
 import VueSweetalert2 from "vue-sweetalert2";
+import swal from 'sweetalert2';
+window.Swal = swal;
 import "sweetalert2/dist/sweetalert2.min.css";
 Vue.use(VueSweetalert2);
 

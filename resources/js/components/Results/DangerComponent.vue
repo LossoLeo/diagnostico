@@ -26,7 +26,7 @@
         <a
           target="_blank"
           href="https://api.whatsapp.com/send?phone=5542988540714&text=Minha%20empresa%20est%C3%A1%20em%20estado%20grave%20no%20ambiente%20digital.%20Preciso%20de%20ajuda%20urgente%20para%20alavancar%20o%20meu%20neg%C3%B3cio.%20"
-          ><button class="btn" id="myButton" type="button">
+          ><button style="padding-bottom: 3%" class="btn" id="myButton" type="button">
             Agende grátis
           </button></a
         >

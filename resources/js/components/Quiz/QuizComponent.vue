@@ -60,12 +60,23 @@
             Qual
             <span>setor</span> de atuação?
           </h1>
+
           <h1>3 / 11</h1>
         </div>
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
               <div class="row">
+                <h2
+                  style="
+                    font-size: 16px;
+                    color: #21222a;
+                    text-align: center;
+                    text-transform: none;
+                  "
+                >
+                  *Você pode selecionar mais de 1 opção
+                </h2>
                 <input
                   type="checkbox"
                   id="physicalretail"
@@ -167,6 +178,16 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <div class="row">
+              <h2
+                style="
+                  font-size: 16px;
+                  color: #21222a;
+                  text-align: center;
+                  text-transform: none;
+                "
+              >
+                *Você pode selecionar mais de 1 opção
+              </h2>
               <input
                 type="checkbox"
                 id="facebook"
@@ -311,6 +332,16 @@
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
               <div class="row">
+                <h2
+                  style="
+                    font-size: 16px;
+                    color: #21222a;
+                    text-align: center;
+                    text-transform: none;
+                  "
+                >
+                  *Você pode selecionar mais de 1 opção
+                </h2>
                 <input
                   type="checkbox"
                   id="paidLinks"
@@ -450,17 +481,21 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
-              <a @click="add(0.5)">
+              <a @click="generateReport(0.5)">
                 Eu não tenho tempo, e acabo perdendo dinheiro por não
                 implementar nada
               </a>
-              <a @click="add(0.5)"> Não encontro mão de obra especializada. </a>
-              <a @click="add(0.6)"> Não preciso vender mais pela internet </a>
-              <a @click="add(0.6)">
+              <a @click="generateReport(0.5)">
+                Não encontro mão de obra especializada.
+              </a>
+              <a @click="generateReport(0.6)">
+                Não preciso vender mais pela internet
+              </a>
+              <a @click="generateReport(0.6)">
                 Não tenho dificuldades, estou ganhando dinheiro utilizando o
                 marketing como parte da minha estratégia comercial
               </a>
-              <a @click="add(0.8)">
+              <a @click="generateReport(0.8)">
                 Não disponho de verba voltada para investir em marketing e
                 vendas
               </a>
@@ -488,19 +523,34 @@ export default {
     };
   },
   methods: {
+    generateReport: function () {
+      this.$swal({
+        type: "success",
+        icon: "info",
+        title: "Obrigado por responder nossas perguntas.",
+        text: "Aguarde enquanto seu relatório está sendo gerado",
+        showConfirmButton: false,
+      }).then(this.add());
+    },
     add(value) {
       if (this.activeStep < 11) {
         this.activeStep = this.activeStep + 1;
         this.sum += value;
       } else {
         if (this.sum <= 10) {
-          return (location.href = "/parabens");
+          window.setTimeout(function () {
+            window.location.href = "/parabens";
+          }, 3000);
         }
         if (this.sum > 10 && this.sum <= 14) {
-          return (location.href = "/cuidado");
+          window.setTimeout(function () {
+            window.location.href = "/cuidado";
+          }, 3000);
         }
         if (this.sum >= 15) {
-          return (location.href = "/alerta");
+          window.setTimeout(function () {
+            window.location.href = "/alerta";
+          }, 3000);
         }
       }
     },
