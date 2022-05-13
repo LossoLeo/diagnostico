@@ -2,19 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\emailTeste;
+use App\Models\Candidate;
 use Illuminate\Http\Request;
-use App\Models\Quiz;
+use Illuminate\Support\Facades\Mail;
 
 class QuizController extends Controller
 {
-    public function create(Request $request ){
-        $data = $request->all();
-        $newQuiz = Quiz::create([
-            'answers' => $data['answers'],
-            'sum' => $data['sum'],
+    public function quiz(Request $request)
+    {
+        $user = Candidate::where('id', $request->id)->first();
+        return view('Quiz.mainquiz', [
+            'user' => $user
         ]);
     }
-    public function quiz(){
-        return view('Quiz.mainquiz');
+
+    public function sendFormEmail(Request $request)
+    {
+        $whatsphone = preg_replace("/[^0-9]/", "", $request->user['phone']);
+        $link = $whatsphone;
+
+        Mail::to('paulo@heycomunicacao.com.br')->send(
+            new emailTeste(
+                $request->user,
+                $request->sector,
+                $request->socials,
+                $request->questions,
+                $request->concept,
+                $link
+            )
+        );
     }
 }

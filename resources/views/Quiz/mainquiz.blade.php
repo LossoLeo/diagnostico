@@ -4,8 +4,7 @@
 
 @section('content')
 
-    <quiz-vue>
-
+    <quiz-vue :user="{{$user}}">
 
     </quiz-vue>
 

@@ -109,8 +109,10 @@ export default {
             text: "Responda de forma mais fiel possível para entendermos a sua empresa",
             showConfirmButton: false,
           });
+
+          const user = response.data.user;
           window.setTimeout(function () {
-            window.location.href = "/quiz";
+            window.location.href = "/quiz?id="+user;
           }, 5500);
         })
         .catch((error) => {
