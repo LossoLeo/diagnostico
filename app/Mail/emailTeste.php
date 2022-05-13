@@ -11,15 +11,25 @@ use App\Models\Candidate;
 class emailTeste extends Mailable
 {
     use Queueable, SerializesModels;
-    public $candidate;
+    public $user;
+    public $sector;
+    public $socials; 
+    public $questions;
+    public $concept;
+    public $link;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Candidate $newCandidate)
+    public function __construct($user, $sector, $socials, $questions, $concept, $link)
     {
-        $this->candidate = $newCandidate;
+        $this->user = (array) $user;
+        $this->sector = $sector; 
+        $this->socials = $socials;
+        $this->questions = $questions;
+        $this->concept = $concept;
+        $this->link = $link;
     }
 
     /**
@@ -29,6 +39,8 @@ class emailTeste extends Mailable
      */
     public function build()
     {
-        return $this->subject('Nova empresa necessitando de um diagnóstico')->markdown('Email/emailTeste');
+        return $this->subject('Nova empresa necessitando de um diagnóstico')->markdown('Email/emailTeste',[
+            'user' => $this->user
+        ]);
     }
 }

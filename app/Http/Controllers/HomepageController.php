@@ -17,15 +17,14 @@ class HomepageController extends Controller
             'phone' => $data['phone'],
             'email' => $data['email'],
         ]);
-        if ($newCandidate) {
-            $whatsphone = preg_replace("/[^0-9]/", "", $newCandidate->phone);
-            $newCandidate->link = $whatsphone;
-            Mail::to('paulo@heycomunicacao.com.br')->send(new emailTeste($newCandidate));
-            return response()->json(['message' => 'Sucesss', 200]);
+        if ($newCandidate) {  
+            return response()->json([
+                'user' => $newCandidate->id
+            ]);
+
         } else {
             return;
         }
-
     }
 }
 

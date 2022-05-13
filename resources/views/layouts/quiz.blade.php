@@ -22,7 +22,7 @@
 
     @media only screen and (min-width: 350px) {
         body {
-            background-image: url("img/bg_quiz.png");
+            background-image:url('img/bg_quiz.png');
             background-color: #21222a;
             background-repeat: no-repeat;
             background-position: top left;

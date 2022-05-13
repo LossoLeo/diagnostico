@@ -5503,8 +5503,9 @@ __webpack_require__.r(__webpack_exports__);
           showConfirmButton: false
         });
 
+        var user = response.data.user;
         window.setTimeout(function () {
-          window.location.href = "/quiz";
+          window.location.href = "/quiz?id=" + user;
         }, 5500);
       })["catch"](function (error) {
         console.log("erro => ", error);
@@ -6035,10 +6036,183 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "quizcomponent.vue",
   model: {
     prop: "checked"
+  },
+  props: {
+    user: Object
   },
   data: function data() {
     return {
@@ -6046,7 +6220,8 @@ __webpack_require__.r(__webpack_exports__);
       sum: 0,
       checkedSocial: [],
       checkedKnowledge: [],
-      checkedField: []
+      checkedField: [],
+      result: []
     };
   },
   methods: {
@@ -6059,28 +6234,46 @@ __webpack_require__.r(__webpack_exports__);
         showConfirmButton: false
       }).then(this.add());
     },
-    add: function add(value) {
+    add: function add(value, question, result) {
+      var _this = this;
+
       if (this.activeStep < 11) {
+        if (question && result) {
+          this.result.push({
+            question: question,
+            result: result
+          });
+        }
+
         this.activeStep = this.activeStep + 1;
         this.sum += value;
       } else {
-        if (this.sum <= 10) {
-          window.setTimeout(function () {
-            window.location.href = "/parabens";
-          }, 3000);
-        }
+        var payload = {
+          user: this.user,
+          sector: this.checkedField,
+          socials: this.checkedSocial,
+          questions: this.result,
+          concept: this.checkedKnowledge
+        };
+        axios.post("/send-form-email", payload).then(function (response) {
+          if (_this.sum <= 10) {
+            window.setTimeout(function () {
+              window.location.href = "/parabens";
+            }, 3000);
+          }
 
-        if (this.sum > 10 && this.sum <= 14) {
-          window.setTimeout(function () {
-            window.location.href = "/cuidado";
-          }, 3000);
-        }
+          if (_this.sum > 10 && _this.sum <= 14) {
+            window.setTimeout(function () {
+              window.location.href = "/cuidado";
+            }, 3000);
+          }
 
-        if (this.sum >= 15) {
-          window.setTimeout(function () {
-            window.location.href = "/alerta";
-          }, 3000);
-        }
+          if (_this.sum >= 15) {
+            window.setTimeout(function () {
+              window.location.href = "/alerta";
+            }, 3000);
+          }
+        })["catch"](function (error) {});
       }
     },
     remove: function remove() {
@@ -34000,7 +34193,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 1",
+                                "Seu site e dados na primeira página do Google"
+                              )
                             },
                           },
                         },
@@ -34016,7 +34213,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 1",
+                                "Apenas os dados básicos, endereços, telefone e horário de funcionamento da empresa"
+                              )
                             },
                           },
                         },
@@ -34032,11 +34233,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 1",
+                                "Apenas as Redes sociais do seu negócio"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Apenas as Rede sociais do seu negócio ")]
+                        [
+                          _vm._v(
+                            "\n              Apenas as Rede sociais do seu negócio\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34044,11 +34253,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 1",
+                                "Seus concorrentes na primeira posição"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Seus concorrentes nas primeiras posições ")]
+                        [
+                          _vm._v(
+                            "\n              Seus concorrentes nas primeiras posições\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34056,11 +34273,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 1",
+                                "Sua empresa não aparece no Google"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Sua empresa não aparece no Google ")]
+                        [
+                          _vm._v(
+                            "\n              Sua empresa não aparece no Google\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -34096,7 +34321,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 2",
+                                "Sim, possuo um funil trabalhando 24 horas por dia"
+                              )
                             },
                           },
                         },
@@ -34112,7 +34341,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 2",
+                                "Não, mas pretendo implementar um processo comercial utilizando a internet nos próximos meses"
+                              )
                             },
                           },
                         },
@@ -34128,11 +34361,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 2",
+                                "Não vejo necessidade atualmente"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não vejo necessidade atualmente ")]
+                        [
+                          _vm._v(
+                            "\n              Não vejo necessidade atualmente\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34140,11 +34381,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 2",
+                                "O que é um funil de vendas?"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" O que é um funil de vendas? ")]
+                        [
+                          _vm._v(
+                            "\n              O que é um funil de vendas?\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -34945,11 +35194,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 5",
+                                "Sim, tenho interações diárias"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Sim, tenho interações diárias ")]
+                        [
+                          _vm._v(
+                            "\n              Sim, tenho interações diárias\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34957,11 +35214,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 5",
+                                "Sim, tenho postagens semanais"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Sim, tenho postagens semanais ")]
+                        [
+                          _vm._v(
+                            "\n              Sim, tenho postagens semanais\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -34969,11 +35234,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 5",
+                                "Não estou ativo atualmente"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não estou ativo atualmente ")]
+                        [
+                          _vm._v(
+                            "\n              Não estou ativo atualmente\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -35009,7 +35282,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 6",
+                                "Sim, tenho uma equipe interna que faz isso"
+                              )
                             },
                           },
                         },
@@ -35025,11 +35302,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 6",
+                                "Sim, tenho esse serviço terceirizado"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Sim, tenho esse serviço terceirizado ")]
+                        [
+                          _vm._v(
+                            "\n              Sim, tenho esse serviço terceirizado\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35037,11 +35322,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 6",
+                                "Não, nunca nem vi, nem comi só ouço falar"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não, nunca vi nem comi, só ouço falar ")]
+                        [
+                          _vm._v(
+                            "\n              Não, nunca vi nem comi, só ouço falar\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -35077,11 +35370,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 7",
+                                "Menos de R$ 1.000,00"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Menos de R$ 1.000,00 ")]
+                        [
+                          _vm._v(
+                            "\n              Menos de R$ 1.000,00\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35089,11 +35390,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 7",
+                                "Entre R$ 1.000,00 e R$ 2.000,00"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Entre R$ 1.000,00 e R$ 2.000,00")]
+                        [
+                          _vm._v(
+                            "\n              Entre R$ 1.000,00 e R$ 2.000,00"
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35101,11 +35410,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 7",
+                                "Acima de R$ 2.000,00"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Acima de R$ 2.000,00 ")]
+                        [
+                          _vm._v(
+                            "\n              Acima de R$ 2.000,00\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35113,11 +35430,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 7",
+                                "Não invisto porque não sei como fazer"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não invisto porque não sei como fazer ")]
+                        [
+                          _vm._v(
+                            "\n              Não invisto porque não sei como fazer\n            "
+                          ),
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35125,11 +35450,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 7",
+                                "Não invisto porque não acredito"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não invisto porque não acredito ")]
+                        [
+                          _vm._v(
+                            "\n              Não invisto porque não acredito\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -35519,7 +35852,7 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(3, "Questão 9", "Menos de 10%")
                             },
                           },
                         },
@@ -35531,7 +35864,7 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Questão 9", "Até 30%")
                             },
                           },
                         },
@@ -35543,7 +35876,7 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Questão 9", "Até 50%")
                             },
                           },
                         },
@@ -35555,7 +35888,7 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "Questão 9", "Mais de 50%")
                             },
                           },
                         },
@@ -35567,7 +35900,7 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "Questão 9", "100%")
                             },
                           },
                         },
@@ -35607,7 +35940,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Questão 10",
+                                "Sim, meu site tem menos de um ano e está otimizado"
+                              )
                             },
                           },
                         },
@@ -35623,7 +35960,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 10",
+                                "Acredito que sim, mas meu site já tem mais de dois anos"
+                              )
                             },
                           },
                         },
@@ -35639,7 +35980,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Questão 10",
+                                "Meu site tem mais de dois anos e possívelmente está desatualizado"
+                              )
                             },
                           },
                         },
@@ -35655,11 +36000,19 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Questão 10",
+                                "Não possuo site atualmente"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Não possuo site atualmente ")]
+                        [
+                          _vm._v(
+                            "\n              Não possuo site atualmente\n            "
+                          ),
+                        ]
                       ),
                     ]),
                   ]
@@ -35695,7 +36048,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.5)
+                              return _vm.generateReport(
+                                0.5,
+                                "Questão 11",
+                                "Eu não tenho tempo, e acabo perdendo dinheiro por não implementar nada"
+                              )
                             },
                           },
                         },
@@ -35711,7 +36068,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.5)
+                              return _vm.generateReport(
+                                0.5,
+                                "Questão 11",
+                                "Não encontro mão de obra especializada."
+                              )
                             },
                           },
                         },
@@ -35727,7 +36088,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.6)
+                              return _vm.generateReport(
+                                0.6,
+                                "Questão 11",
+                                "Não preciso vender mais pela internet"
+                              )
                             },
                           },
                         },
@@ -35743,7 +36108,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.6)
+                              return _vm.generateReport(
+                                0.6,
+                                "Questão 11",
+                                "Não tenho dificuldade, estou ganhando dinheiro atualizando o marketing como parte da minha estratégia comercial"
+                              )
                             },
                           },
                         },
@@ -35759,7 +36128,11 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.8)
+                              return _vm.generateReport(
+                                0.8,
+                                "Questão 11",
+                                "Não disponho de verba voltada para investir em marketing e vendas"
+                              )
                             },
                           },
                         },
