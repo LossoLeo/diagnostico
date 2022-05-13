@@ -148,5 +148,3 @@ button {
 }
 </style>
 
-
-https://script.google.com/macros/s/AKfycbx38OY0EkTRiMmSydAPm-k7JxOaX2AP_oPo3SA2JYuLPJNwVR3ZSCqZZzwo-RNPxJWGGw/exec

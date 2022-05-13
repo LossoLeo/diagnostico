@@ -16,7 +16,7 @@
                 @click="
                   add(
                     1,
-                    'Questão 1',
+                    'Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?',
                     'Seu site e dados na primeira página do Google'
                   )
                 "
@@ -27,7 +27,7 @@
                 @click="
                   add(
                     2,
-                    'Questão 1',
+                    'Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?',
                     'Apenas os dados básicos, endereços, telefone e horário de funcionamento da empresa'
                   )
                 "
@@ -37,21 +37,33 @@
               </a>
               <a
                 @click="
-                  add(2, 'Questão 1', 'Apenas as Redes sociais do seu negócio')
+                  add(
+                    2,
+                    'Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?',
+                    'Apenas as Redes sociais do seu negócio'
+                  )
                 "
               >
                 Apenas as Rede sociais do seu negócio
               </a>
               <a
                 @click="
-                  add(3, 'Questão 1', 'Seus concorrentes na primeira posição')
+                  add(
+                    3,
+                    'Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?',
+                    'Seus concorrentes na primeira posição'
+                  )
                 "
               >
                 Seus concorrentes nas primeiras posições
               </a>
               <a
                 @click="
-                  add(3, 'Questão 1', 'Sua empresa não aparece no Google')
+                  add(
+                    3,
+                    'Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?',
+                    'Sua empresa não aparece no Google'
+                  )
                 "
               >
                 Sua empresa não aparece no Google
@@ -77,7 +89,7 @@
                 @click="
                   add(
                     1,
-                    'Questão 2',
+                    'Sua empresa possui um plano para aumentar o faturamento através da internet?',
                     'Sim, possuo um funil trabalhando 24 horas por dia'
                   )
                 "
@@ -88,7 +100,7 @@
                 @click="
                   add(
                     2,
-                    'Questão 2',
+                    'Sua empresa possui um plano para aumentar o faturamento através da internet?',
                     'Não, mas pretendo implementar um processo comercial utilizando a internet nos próximos meses'
                   )
                 "
@@ -97,11 +109,25 @@
                 internet nos próximos meses</a
               >
               <a
-                @click="add(2, 'Questão 2', 'Não vejo necessidade atualmente')"
+                @click="
+                  add(
+                    2,
+                    'Sua empresa possui um plano para aumentar o faturamento através da internet?',
+                    'Não vejo necessidade atualmente'
+                  )
+                "
               >
                 Não vejo necessidade atualmente
               </a>
-              <a @click="add(3, 'Questão 2', 'O que é um funil de vendas?')">
+              <a
+                @click="
+                  add(
+                    3,
+                    'Sua empresa possui um plano para aumentar o faturamento através da internet?',
+                    'O que é um funil de vendas?'
+                  )
+                "
+              >
                 O que é um funil de vendas?
               </a>
             </form>
@@ -135,62 +161,64 @@
                 </h2>
                 <input
                   type="checkbox"
-                  id="physicalretail"
-                  value="physicalretail"
+                  id="Varejo_Fisico"
+                  value="Varejo_Fisico"
                   v-model="checkedField"
                 />
-                <label for="physicalretail">Varejo Físico</label>
+                <label for="Varejo_Fisico">Varejo Físico</label>
 
                 <input
                   type="checkbox"
-                  id="digitalretail"
-                  value="digitalretail"
+                  id="Varejo_Digital"
+                  value="Varejo_Digital"
                   v-model="checkedField"
                 />
-                <label for="digitalretail">Varejo Digital</label>
+                <label for="Varejo_Digital">Varejo Digital</label>
 
                 <input
                   type="checkbox"
-                  id="technology"
-                  value="technology"
+                  id="Tecnologia"
+                  value="Tecnologia"
                   v-model="checkedField"
                 />
-                <label for="technology">Tecnologia</label>
+                <label for="Tecnologia">Tecnologia</label>
                 <input
                   type="checkbox"
-                  id="serviceprovider"
-                  value="serviceprovider"
+                  id="Prestadora_de_Servicos"
+                  value="Prestadora_de_Servicos"
                   v-model="checkedField"
                 />
-                <label for="serviceprovider">Prestadora de Serviços</label>
+                <label for="Prestadora_de_Servicos"
+                  >Prestadora de Serviços</label
+                >
                 <input
                   type="checkbox"
-                  id="industry"
-                  value="industry"
+                  id="Industria"
+                  value="Industria"
                   v-model="checkedField"
                 />
-                <label for="industry">Indústria</label>
+                <label for="Industria">Indústria</label>
                 <input
                   type="checkbox"
-                  id="agro"
-                  value="agro"
+                  id="Agronegocio"
+                  value="Agronegocio"
                   v-model="checkedField"
                 />
-                <label for="agro">Agronegócios</label>
+                <label for="Agronegocio">Agronegócios</label>
                 <input
                   type="checkbox"
-                  id="health"
-                  value="health"
+                  id="Saude"
+                  value="Saude"
                   v-model="checkedField"
                 />
-                <label for="health">Saúde</label>
+                <label for="Saude">Saúde</label>
                 <input
                   type="checkbox"
-                  id="other"
-                  value="other"
+                  id="Outro"
+                  value="Outro"
                   v-model="checkedField"
                 />
-                <label for="other">Outro</label>
+                <label for="Outro">Outro</label>
               </div>
               <button
                 style="
@@ -246,11 +274,11 @@
               </h2>
               <input
                 type="checkbox"
-                id="facebook"
-                value="facebook"
+                id="Facebook"
+                value="Facebook"
                 v-model="checkedSocial"
               />
-              <label for="facebook">Facebook</label>
+              <label for="Facebook">Facebook</label>
 
               <input
                 type="checkbox"
@@ -262,25 +290,27 @@
 
               <input
                 type="checkbox"
-                id="linkedin"
-                value="linkedin"
+                id="Linkedin"
+                value="Linkedin"
                 v-model="checkedSocial"
               />
-              <label for="linkedin">Linkedin</label>
+              <label for="Linkedin">Linkedin</label>
               <input
                 type="checkbox"
-                id="twitter"
-                value="twitter"
+                id="Twitter"
+                value="Twitter"
                 v-model="checkedSocial"
               />
-              <label for="twitter">Twitter</label>
+              <label for="Twitter">Twitter</label>
               <input
                 type="checkbox"
-                id="nosocial"
-                value="nosocial"
+                id="Nao_tenho_rede_social"
+                value="Nao_tenho_rede_social"
                 v-model="checkedSocial"
               />
-              <label for="nosocial">Minha empresa não tem redes sociais</label>
+              <label for="Nao_tenho_rede_social"
+                >Minha empresa não tem redes sociais</label
+              >
             </div>
             <button
               style="
@@ -323,13 +353,37 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
-              <a @click="add(1, 'Questão 5', 'Sim, tenho interações diárias')">
+              <a
+                @click="
+                  add(
+                    1,
+                    'Você está ativo nas suas redes sociais ?',
+                    'Sim, tenho interações diárias'
+                  )
+                "
+              >
                 Sim, tenho interações diárias
               </a>
-              <a @click="add(2, 'Questão 5', 'Sim, tenho postagens semanais')">
+              <a
+                @click="
+                  add(
+                    2,
+                    'Você está ativo nas suas redes sociais ?',
+                    'Sim, tenho postagens semanais'
+                  )
+                "
+              >
                 Sim, tenho postagens semanais
               </a>
-              <a @click="add(3, 'Questão 5', 'Não estou ativo atualmente')">
+              <a
+                @click="
+                  add(
+                    3,
+                    'Você está ativo nas suas redes sociais ?',
+                    'Não estou ativo atualmente'
+                  )
+                "
+              >
                 Não estou ativo atualmente
               </a>
             </form>
@@ -353,7 +407,7 @@
                 @click="
                   add(
                     1,
-                    'Questão 6',
+                    'Sua empresa investe em gestão de tráfego pago?',
                     'Sim, tenho uma equipe interna que faz isso'
                   )
                 "
@@ -362,7 +416,11 @@
               </a>
               <a
                 @click="
-                  add(2, 'Questão 6', 'Sim, tenho esse serviço terceirizado')
+                  add(
+                    2,
+                    'Sua empresa investe em gestão de tráfego pago?',
+                    'Sim, tenho esse serviço terceirizado'
+                  )
                 "
               >
                 Sim, tenho esse serviço terceirizado
@@ -371,7 +429,7 @@
                 @click="
                   add(
                     3,
-                    'Questão 6',
+                    'Sua empresa investe em gestão de tráfego pago?',
                     'Não, nunca nem vi, nem comi só ouço falar'
                   )
                 "
@@ -395,26 +453,58 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
-              <a @click="add(2, 'Questão 7', 'Menos de R$ 1.000,00')">
+              <a
+                @click="
+                  add(
+                    2,
+                    'Quanto a sua empresa investe em tráfego pago ?',
+                    'Menos de R$ 1.000,00'
+                  )
+                "
+              >
                 Menos de R$ 1.000,00
               </a>
               <a
-                @click="add(2, 'Questão 7', 'Entre R$ 1.000,00 e R$ 2.000,00')"
+                @click="
+                  add(
+                    2,
+                    'Quanto a sua empresa investe em tráfego pago ?',
+                    'Entre R$ 1.000,00 e R$ 2.000,00'
+                  )
+                "
               >
                 Entre R$ 1.000,00 e R$ 2.000,00</a
               >
-              <a @click="add(1, 'Questão 7', 'Acima de R$ 2.000,00')">
+              <a
+                @click="
+                  add(
+                    1,
+                    'Quanto a sua empresa investe em tráfego pago ?',
+                    'Acima de R$ 2.000,00'
+                  )
+                "
+              >
                 Acima de R$ 2.000,00
               </a>
               <a
                 @click="
-                  add(3, 'Questão 7', 'Não invisto porque não sei como fazer')
+                  add(
+                    3,
+                    'Quanto a sua empresa investe em tráfego pago ?',
+                    'Não invisto porque não sei como fazer'
+                  )
                 "
               >
                 Não invisto porque não sei como fazer
               </a>
               <a
-                @click="add(3, 'Questão 7', 'Não invisto porque não acredito')"
+                @click="
+                  add(
+                    3,
+                    'Quanto a sua empresa investe em tráfego pago ?',
+                    'Não invisto porque não acredito'
+                  )
+                "
               >
                 Não invisto porque não acredito
               </a>
@@ -448,48 +538,48 @@
                 </h2>
                 <input
                   type="checkbox"
-                  id="paidLinks"
-                  value="paidLinks"
+                  id="Links_Patrocinados"
+                  value="Links_Patrocinados"
                   v-model="checkedKnowledge"
                 />
-                <label for="paidLinks">Links patrocinados</label>
+                <label for="Links_Patrocinados">Links patrocinados</label>
                 <input
                   type="checkbox"
-                  id="emailfunnel"
-                  value="emailfunnel"
+                  id="Funil_de_email"
+                  value="Funil_de_email"
                   v-model="checkedKnowledge"
                 />
-                <label for="emailfunnel">Funil de email</label>
+                <label for="Funil_de_email">Funil de email</label>
 
                 <input
                   type="checkbox"
-                  id="marketing"
-                  value="marketing"
+                  id="Inbound_Marketing"
+                  value="Inbound_Marketing"
                   v-model="checkedKnowledge"
                 />
-                <label for="marketing">Inbound Marketing</label>
+                <label for="Inbound_Marketing">Inbound Marketing</label>
 
                 <input
                   type="checkbox"
-                  id="seo"
-                  value="seo"
+                  id="SEO"
+                  value="SEO"
                   v-model="checkedKnowledge"
                 />
-                <label for="seo">SEO</label>
+                <label for="SEO">SEO</label>
                 <input
                   type="checkbox"
-                  id="branding"
-                  value="branding"
+                  id="Branding"
+                  value="Branding"
                   v-model="checkedKnowledge"
                 />
-                <label for="branding">Branding</label>
+                <label for="Branding">Branding</label>
                 <input
                   type="checkbox"
-                  id="noknowledge"
-                  value="noknowledge"
+                  id="Sem_Conhecimento"
+                  value="Sem_Conhecimento"
                   v-model="checkedKnowledge"
                 />
-                <label for="noknowledge">Nenhum</label>
+                <label for="Sem_Conhecimento">Nenhum</label>
               </div>
               <button
                 style="
@@ -533,11 +623,61 @@
         <div class="col" style="text-align: -webkit-center">
           <div class="login-box" style="align-self: center">
             <form style="display: inline-grid">
-              <a @click="add(3, 'Questão 9', 'Menos de 10%')"> Menos de 10% </a>
-              <a @click="add(2, 'Questão 9', 'Até 30%')"> Até 30% </a>
-              <a @click="add(2, 'Questão 9', 'Até 50%')"> Até 50% </a>
-              <a @click="add(1, 'Questão 9', 'Mais de 50%')"> Mais de 50% </a>
-              <a @click="add(1, 'Questão 9', '100%')"> 100% </a>
+              <a
+                @click="
+                  add(
+                    3,
+                    'Quantos % do seu faturamento vem da internet hoje?',
+                    'Menos de 10%'
+                  )
+                "
+              >
+                Menos de 10%
+              </a>
+              <a
+                @click="
+                  add(
+                    2,
+                    'Quantos % do seu faturamento vem da internet hoje?',
+                    'Até 30%'
+                  )
+                "
+              >
+                Até 30%
+              </a>
+              <a
+                @click="
+                  add(
+                    2,
+                    'Quantos % do seu faturamento vem da internet hoje?',
+                    'Até 50%'
+                  )
+                "
+              >
+                Até 50%
+              </a>
+              <a
+                @click="
+                  add(
+                    1,
+                    'Quantos % do seu faturamento vem da internet hoje?',
+                    'Mais de 50%'
+                  )
+                "
+              >
+                Mais de 50%
+              </a>
+              <a
+                @click="
+                  add(
+                    1,
+                    'Quantos % do seu faturamento vem da internet hoje?',
+                    '100%'
+                  )
+                "
+              >
+                100%
+              </a>
             </form>
           </div>
         </div>
@@ -559,7 +699,7 @@
                 @click="
                   add(
                     1,
-                    'Questão 10',
+                    'Seu site possui otimização e está atualizado?',
                     'Sim, meu site tem menos de um ano e está otimizado'
                   )
                 "
@@ -570,7 +710,7 @@
                 @click="
                   add(
                     2,
-                    'Questão 10',
+                    'Seu site possui otimização e está atualizado?',
                     'Acredito que sim, mas meu site já tem mais de dois anos'
                   )
                 "
@@ -581,7 +721,7 @@
                 @click="
                   add(
                     2,
-                    'Questão 10',
+                    'Seu site possui otimização e está atualizado?',
                     'Meu site tem mais de dois anos e possívelmente está desatualizado'
                   )
                 "
@@ -589,7 +729,15 @@
                 Meu site tem mais de dois anos e possivelmente está
                 desatualizado
               </a>
-              <a @click="add(3, 'Questão 10', 'Não possuo site atualmente')">
+              <a
+                @click="
+                  add(
+                    3,
+                    'Seu site possui otimização e está atualizado?',
+                    'Não possuo site atualmente'
+                  )
+                "
+              >
                 Não possuo site atualmente
               </a>
             </form>
@@ -615,7 +763,7 @@
                 @click="
                   generateReport(
                     0.5,
-                    'Questão 11',
+                    'Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?',
                     'Eu não tenho tempo, e acabo perdendo dinheiro por não implementar nada'
                   )
                 "
@@ -627,7 +775,7 @@
                 @click="
                   generateReport(
                     0.5,
-                    'Questão 11',
+                    'Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?',
                     'Não encontro mão de obra especializada.'
                   )
                 "
@@ -638,7 +786,7 @@
                 @click="
                   generateReport(
                     0.6,
-                    'Questão 11',
+                    'Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?',
                     'Não preciso vender mais pela internet'
                   )
                 "
@@ -649,7 +797,7 @@
                 @click="
                   generateReport(
                     0.6,
-                    'Questão 11',
+                    'Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?',
                     'Não tenho dificuldade, estou ganhando dinheiro atualizando o marketing como parte da minha estratégia comercial'
                   )
                 "
@@ -661,7 +809,7 @@
                 @click="
                   generateReport(
                     0.8,
-                    'Questão 11',
+                    'Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?',
                     'Não disponho de verba voltada para investir em marketing e vendas'
                   )
                 "
@@ -683,11 +831,9 @@ export default {
   model: {
     prop: "checked",
   },
-
   props: {
     user: Object,
   },
-
   data() {
     return {
       activeStep: 1,
@@ -698,7 +844,6 @@ export default {
       result: [],
     };
   },
-
   methods: {
     generateReport: function () {
       this.$swal({
@@ -727,7 +872,6 @@ export default {
           questions: this.result,
           concept: this.checkedKnowledge,
         };
-
         axios
           .post("/send-form-email", payload)
           .then((response) => {

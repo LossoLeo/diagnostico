@@ -22,7 +22,7 @@
     <br>
     <h2>Questionário 📝</h2>
     @foreach ($questions as $ite)
-        <h5>{{ $ite['question'] }}</h5>
+        <h3>{{ $ite['question'] }}</h3>
         <p>R: {{ $ite['result'] }}</p>
     @endforeach
     <br>

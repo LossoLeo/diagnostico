@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
 
     <link rel="icon" href="{{ asset('img/heyicon-300x300.png') }}">
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P6V55RG');
+    </script>
+    <!-- End Google Tag Manager -->
 
     <title>@yield('title')</title>
 </head>
@@ -22,7 +40,7 @@
 
     @media only screen and (min-width: 350px) {
         body {
-            background-image:url('img/bg_quiz.png');
+            background-image: url('img/bg_quiz.png');
             background-color: #21222a;
             background-repeat: no-repeat;
             background-position: top left;
@@ -342,6 +360,10 @@
 </style>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6V55RG" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header style="height: 30px; padding-left: 100px; padding-top: 15px">
         <a href="/"><img src="{{ asset('img/black_logo.png') }}" alt="" /></a>
     </header>

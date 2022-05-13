@@ -17,7 +17,7 @@ class HomepageController extends Controller
             'phone' => $data['phone'],
             'email' => $data['email'],
         ]);
-        if ($newCandidate) {  
+        if ($newCandidate) {
             return response()->json([
                 'user' => $newCandidate->id
             ]);

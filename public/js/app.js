@@ -6206,6 +6206,154 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "quizcomponent.vue",
   model: {
@@ -34195,7 +34343,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 1",
+                                "Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?",
                                 "Seu site e dados na primeira página do Google"
                               )
                             },
@@ -34215,7 +34363,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 1",
+                                "Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?",
                                 "Apenas os dados básicos, endereços, telefone e horário de funcionamento da empresa"
                               )
                             },
@@ -34235,7 +34383,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 1",
+                                "Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?",
                                 "Apenas as Redes sociais do seu negócio"
                               )
                             },
@@ -34255,7 +34403,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 1",
+                                "Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?",
                                 "Seus concorrentes na primeira posição"
                               )
                             },
@@ -34275,7 +34423,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 1",
+                                "Se um cliente digitar o segmento da sua empresa no google o que ele vai encontrar?",
                                 "Sua empresa não aparece no Google"
                               )
                             },
@@ -34323,7 +34471,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 2",
+                                "Sua empresa possui um plano para aumentar o faturamento através da internet?",
                                 "Sim, possuo um funil trabalhando 24 horas por dia"
                               )
                             },
@@ -34343,7 +34491,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 2",
+                                "Sua empresa possui um plano para aumentar o faturamento através da internet?",
                                 "Não, mas pretendo implementar um processo comercial utilizando a internet nos próximos meses"
                               )
                             },
@@ -34363,7 +34511,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 2",
+                                "Sua empresa possui um plano para aumentar o faturamento através da internet?",
                                 "Não vejo necessidade atualmente"
                               )
                             },
@@ -34383,7 +34531,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 2",
+                                "Sua empresa possui um plano para aumentar o faturamento através da internet?",
                                 "O que é um funil de vendas?"
                               )
                             },
@@ -34453,12 +34601,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "physicalretail",
-                            value: "physicalretail",
+                            id: "Varejo_Fisico",
+                            value: "Varejo_Fisico",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "physicalretail") > -1
+                              ? _vm._i(_vm.checkedField, "Varejo_Fisico") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34467,7 +34615,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "physicalretail",
+                                var $$v = "Varejo_Fisico",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34485,7 +34633,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "physicalretail" } }, [
+                        _c("label", { attrs: { for: "Varejo_Fisico" } }, [
                           _vm._v("Varejo Físico"),
                         ]),
                         _vm._v(" "),
@@ -34500,12 +34648,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "digitalretail",
-                            value: "digitalretail",
+                            id: "Varejo_Digital",
+                            value: "Varejo_Digital",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "digitalretail") > -1
+                              ? _vm._i(_vm.checkedField, "Varejo_Digital") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34514,7 +34662,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "digitalretail",
+                                var $$v = "Varejo_Digital",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34532,7 +34680,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "digitalretail" } }, [
+                        _c("label", { attrs: { for: "Varejo_Digital" } }, [
                           _vm._v("Varejo Digital"),
                         ]),
                         _vm._v(" "),
@@ -34547,12 +34695,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "technology",
-                            value: "technology",
+                            id: "Tecnologia",
+                            value: "Tecnologia",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "technology") > -1
+                              ? _vm._i(_vm.checkedField, "Tecnologia") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34561,7 +34709,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "technology",
+                                var $$v = "Tecnologia",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34579,7 +34727,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "technology" } }, [
+                        _c("label", { attrs: { for: "Tecnologia" } }, [
                           _vm._v("Tecnologia"),
                         ]),
                         _vm._v(" "),
@@ -34594,12 +34742,15 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "serviceprovider",
-                            value: "serviceprovider",
+                            id: "Prestadora_de_Servicos",
+                            value: "Prestadora_de_Servicos",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "serviceprovider") > -1
+                              ? _vm._i(
+                                  _vm.checkedField,
+                                  "Prestadora_de_Servicos"
+                                ) > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34608,7 +34759,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "serviceprovider",
+                                var $$v = "Prestadora_de_Servicos",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34626,9 +34777,11 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "serviceprovider" } }, [
-                          _vm._v("Prestadora de Serviços"),
-                        ]),
+                        _c(
+                          "label",
+                          { attrs: { for: "Prestadora_de_Servicos" } },
+                          [_vm._v("Prestadora de Serviços")]
+                        ),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -34641,12 +34794,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "industry",
-                            value: "industry",
+                            id: "Industria",
+                            value: "Industria",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "industry") > -1
+                              ? _vm._i(_vm.checkedField, "Industria") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34655,7 +34808,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "industry",
+                                var $$v = "Industria",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34673,7 +34826,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "industry" } }, [
+                        _c("label", { attrs: { for: "Industria" } }, [
                           _vm._v("Indústria"),
                         ]),
                         _vm._v(" "),
@@ -34688,12 +34841,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "agro",
-                            value: "agro",
+                            id: "Agronegocio",
+                            value: "Agronegocio",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "agro") > -1
+                              ? _vm._i(_vm.checkedField, "Agronegocio") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34702,7 +34855,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "agro",
+                                var $$v = "Agronegocio",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34720,7 +34873,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "agro" } }, [
+                        _c("label", { attrs: { for: "Agronegocio" } }, [
                           _vm._v("Agronegócios"),
                         ]),
                         _vm._v(" "),
@@ -34735,12 +34888,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "health",
-                            value: "health",
+                            id: "Saude",
+                            value: "Saude",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "health") > -1
+                              ? _vm._i(_vm.checkedField, "Saude") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34749,7 +34902,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "health",
+                                var $$v = "Saude",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34767,7 +34920,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "health" } }, [
+                        _c("label", { attrs: { for: "Saude" } }, [
                           _vm._v("Saúde"),
                         ]),
                         _vm._v(" "),
@@ -34782,12 +34935,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "other",
-                            value: "other",
+                            id: "Outro",
+                            value: "Outro",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "other") > -1
+                              ? _vm._i(_vm.checkedField, "Outro") > -1
                               : _vm.checkedField,
                           },
                           on: {
@@ -34796,7 +34949,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "other",
+                                var $$v = "Outro",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -34814,7 +34967,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "other" } }, [
+                        _c("label", { attrs: { for: "Outro" } }, [
                           _vm._v("Outro"),
                         ]),
                       ]),
@@ -34906,12 +35059,12 @@ var render = function () {
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "facebook",
-                          value: "facebook",
+                          id: "Facebook",
+                          value: "Facebook",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "facebook") > -1
+                            ? _vm._i(_vm.checkedSocial, "Facebook") > -1
                             : _vm.checkedSocial,
                         },
                         on: {
@@ -34920,7 +35073,7 @@ var render = function () {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "facebook",
+                              var $$v = "Facebook",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -34938,7 +35091,7 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "facebook" } }, [
+                      _c("label", { attrs: { for: "Facebook" } }, [
                         _vm._v("Facebook"),
                       ]),
                       _vm._v(" "),
@@ -35000,12 +35153,12 @@ var render = function () {
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "linkedin",
-                          value: "linkedin",
+                          id: "Linkedin",
+                          value: "Linkedin",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "linkedin") > -1
+                            ? _vm._i(_vm.checkedSocial, "Linkedin") > -1
                             : _vm.checkedSocial,
                         },
                         on: {
@@ -35014,7 +35167,7 @@ var render = function () {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "linkedin",
+                              var $$v = "Linkedin",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -35032,7 +35185,7 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "linkedin" } }, [
+                      _c("label", { attrs: { for: "Linkedin" } }, [
                         _vm._v("Linkedin"),
                       ]),
                       _vm._v(" "),
@@ -35047,12 +35200,12 @@ var render = function () {
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "twitter",
-                          value: "twitter",
+                          id: "Twitter",
+                          value: "Twitter",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "twitter") > -1
+                            ? _vm._i(_vm.checkedSocial, "Twitter") > -1
                             : _vm.checkedSocial,
                         },
                         on: {
@@ -35061,7 +35214,7 @@ var render = function () {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "twitter",
+                              var $$v = "Twitter",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -35079,7 +35232,7 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "twitter" } }, [
+                      _c("label", { attrs: { for: "Twitter" } }, [
                         _vm._v("Twitter"),
                       ]),
                       _vm._v(" "),
@@ -35094,12 +35247,15 @@ var render = function () {
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "nosocial",
-                          value: "nosocial",
+                          id: "Nao_tenho_rede_social",
+                          value: "Nao_tenho_rede_social",
                         },
                         domProps: {
                           checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "nosocial") > -1
+                            ? _vm._i(
+                                _vm.checkedSocial,
+                                "Nao_tenho_rede_social"
+                              ) > -1
                             : _vm.checkedSocial,
                         },
                         on: {
@@ -35108,7 +35264,7 @@ var render = function () {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "nosocial",
+                              var $$v = "Nao_tenho_rede_social",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -35126,7 +35282,7 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "nosocial" } }, [
+                      _c("label", { attrs: { for: "Nao_tenho_rede_social" } }, [
                         _vm._v("Minha empresa não tem redes sociais"),
                       ]),
                     ]),
@@ -35196,7 +35352,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 5",
+                                "Você está ativo nas suas redes sociais ?",
                                 "Sim, tenho interações diárias"
                               )
                             },
@@ -35216,7 +35372,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 5",
+                                "Você está ativo nas suas redes sociais ?",
                                 "Sim, tenho postagens semanais"
                               )
                             },
@@ -35236,7 +35392,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 5",
+                                "Você está ativo nas suas redes sociais ?",
                                 "Não estou ativo atualmente"
                               )
                             },
@@ -35284,7 +35440,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 6",
+                                "Sua empresa investe em gestão de tráfego pago?",
                                 "Sim, tenho uma equipe interna que faz isso"
                               )
                             },
@@ -35304,7 +35460,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 6",
+                                "Sua empresa investe em gestão de tráfego pago?",
                                 "Sim, tenho esse serviço terceirizado"
                               )
                             },
@@ -35324,7 +35480,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 6",
+                                "Sua empresa investe em gestão de tráfego pago?",
                                 "Não, nunca nem vi, nem comi só ouço falar"
                               )
                             },
@@ -35372,7 +35528,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 7",
+                                "Quanto a sua empresa investe em tráfego pago ?",
                                 "Menos de R$ 1.000,00"
                               )
                             },
@@ -35392,7 +35548,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 7",
+                                "Quanto a sua empresa investe em tráfego pago ?",
                                 "Entre R$ 1.000,00 e R$ 2.000,00"
                               )
                             },
@@ -35412,7 +35568,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 7",
+                                "Quanto a sua empresa investe em tráfego pago ?",
                                 "Acima de R$ 2.000,00"
                               )
                             },
@@ -35432,7 +35588,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 7",
+                                "Quanto a sua empresa investe em tráfego pago ?",
                                 "Não invisto porque não sei como fazer"
                               )
                             },
@@ -35452,7 +35608,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 7",
+                                "Quanto a sua empresa investe em tráfego pago ?",
                                 "Não invisto porque não acredito"
                               )
                             },
@@ -35522,12 +35678,15 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "paidLinks",
-                            value: "paidLinks",
+                            id: "Links_Patrocinados",
+                            value: "Links_Patrocinados",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "paidLinks") > -1
+                              ? _vm._i(
+                                  _vm.checkedKnowledge,
+                                  "Links_Patrocinados"
+                                ) > -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35536,7 +35695,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "paidLinks",
+                                var $$v = "Links_Patrocinados",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35554,7 +35713,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "paidLinks" } }, [
+                        _c("label", { attrs: { for: "Links_Patrocinados" } }, [
                           _vm._v("Links patrocinados"),
                         ]),
                         _vm._v(" "),
@@ -35569,12 +35728,13 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "emailfunnel",
-                            value: "emailfunnel",
+                            id: "Funil_de_email",
+                            value: "Funil_de_email",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "emailfunnel") > -1
+                              ? _vm._i(_vm.checkedKnowledge, "Funil_de_email") >
+                                -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35583,7 +35743,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "emailfunnel",
+                                var $$v = "Funil_de_email",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35601,7 +35761,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "emailfunnel" } }, [
+                        _c("label", { attrs: { for: "Funil_de_email" } }, [
                           _vm._v("Funil de email"),
                         ]),
                         _vm._v(" "),
@@ -35616,12 +35776,15 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "marketing",
-                            value: "marketing",
+                            id: "Inbound_Marketing",
+                            value: "Inbound_Marketing",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "marketing") > -1
+                              ? _vm._i(
+                                  _vm.checkedKnowledge,
+                                  "Inbound_Marketing"
+                                ) > -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35630,7 +35793,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "marketing",
+                                var $$v = "Inbound_Marketing",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35648,7 +35811,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "marketing" } }, [
+                        _c("label", { attrs: { for: "Inbound_Marketing" } }, [
                           _vm._v("Inbound Marketing"),
                         ]),
                         _vm._v(" "),
@@ -35661,10 +35824,10 @@ var render = function () {
                               expression: "checkedKnowledge",
                             },
                           ],
-                          attrs: { type: "checkbox", id: "seo", value: "seo" },
+                          attrs: { type: "checkbox", id: "SEO", value: "SEO" },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "seo") > -1
+                              ? _vm._i(_vm.checkedKnowledge, "SEO") > -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35673,7 +35836,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "seo",
+                                var $$v = "SEO",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35691,7 +35854,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "seo" } }, [_vm._v("SEO")]),
+                        _c("label", { attrs: { for: "SEO" } }, [_vm._v("SEO")]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -35704,12 +35867,12 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "branding",
-                            value: "branding",
+                            id: "Branding",
+                            value: "Branding",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "branding") > -1
+                              ? _vm._i(_vm.checkedKnowledge, "Branding") > -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35718,7 +35881,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "branding",
+                                var $$v = "Branding",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35736,7 +35899,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "branding" } }, [
+                        _c("label", { attrs: { for: "Branding" } }, [
                           _vm._v("Branding"),
                         ]),
                         _vm._v(" "),
@@ -35751,12 +35914,15 @@ var render = function () {
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "noknowledge",
-                            value: "noknowledge",
+                            id: "Sem_Conhecimento",
+                            value: "Sem_Conhecimento",
                           },
                           domProps: {
                             checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "noknowledge") > -1
+                              ? _vm._i(
+                                  _vm.checkedKnowledge,
+                                  "Sem_Conhecimento"
+                                ) > -1
                               : _vm.checkedKnowledge,
                           },
                           on: {
@@ -35765,7 +35931,7 @@ var render = function () {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "noknowledge",
+                                var $$v = "Sem_Conhecimento",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -35783,7 +35949,7 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "noknowledge" } }, [
+                        _c("label", { attrs: { for: "Sem_Conhecimento" } }, [
                           _vm._v("Nenhum"),
                         ]),
                       ]),
@@ -35852,11 +36018,15 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(3, "Questão 9", "Menos de 10%")
+                              return _vm.add(
+                                3,
+                                "Quantos % do seu faturamento vem da internet hoje?",
+                                "Menos de 10%"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Menos de 10% ")]
+                        [_vm._v("\n              Menos de 10%\n            ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35864,11 +36034,15 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2, "Questão 9", "Até 30%")
+                              return _vm.add(
+                                2,
+                                "Quantos % do seu faturamento vem da internet hoje?",
+                                "Até 30%"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Até 30% ")]
+                        [_vm._v("\n              Até 30%\n            ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35876,11 +36050,15 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(2, "Questão 9", "Até 50%")
+                              return _vm.add(
+                                2,
+                                "Quantos % do seu faturamento vem da internet hoje?",
+                                "Até 50%"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Até 50% ")]
+                        [_vm._v("\n              Até 50%\n            ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35888,11 +36066,15 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1, "Questão 9", "Mais de 50%")
+                              return _vm.add(
+                                1,
+                                "Quantos % do seu faturamento vem da internet hoje?",
+                                "Mais de 50%"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" Mais de 50% ")]
+                        [_vm._v("\n              Mais de 50%\n            ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -35900,11 +36082,15 @@ var render = function () {
                         {
                           on: {
                             click: function ($event) {
-                              return _vm.add(1, "Questão 9", "100%")
+                              return _vm.add(
+                                1,
+                                "Quantos % do seu faturamento vem da internet hoje?",
+                                "100%"
+                              )
                             },
                           },
                         },
-                        [_vm._v(" 100% ")]
+                        [_vm._v("\n              100%\n            ")]
                       ),
                     ]),
                   ]
@@ -35942,7 +36128,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 1,
-                                "Questão 10",
+                                "Seu site possui otimização e está atualizado?",
                                 "Sim, meu site tem menos de um ano e está otimizado"
                               )
                             },
@@ -35962,7 +36148,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 10",
+                                "Seu site possui otimização e está atualizado?",
                                 "Acredito que sim, mas meu site já tem mais de dois anos"
                               )
                             },
@@ -35982,7 +36168,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 2,
-                                "Questão 10",
+                                "Seu site possui otimização e está atualizado?",
                                 "Meu site tem mais de dois anos e possívelmente está desatualizado"
                               )
                             },
@@ -36002,7 +36188,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.add(
                                 3,
-                                "Questão 10",
+                                "Seu site possui otimização e está atualizado?",
                                 "Não possuo site atualmente"
                               )
                             },
@@ -36050,7 +36236,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.generateReport(
                                 0.5,
-                                "Questão 11",
+                                "Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?",
                                 "Eu não tenho tempo, e acabo perdendo dinheiro por não implementar nada"
                               )
                             },
@@ -36070,7 +36256,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.generateReport(
                                 0.5,
-                                "Questão 11",
+                                "Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?",
                                 "Não encontro mão de obra especializada."
                               )
                             },
@@ -36090,7 +36276,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.generateReport(
                                 0.6,
-                                "Questão 11",
+                                "Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?",
                                 "Não preciso vender mais pela internet"
                               )
                             },
@@ -36110,7 +36296,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.generateReport(
                                 0.6,
-                                "Questão 11",
+                                "Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?",
                                 "Não tenho dificuldade, estou ganhando dinheiro atualizando o marketing como parte da minha estratégia comercial"
                               )
                             },
@@ -36130,7 +36316,7 @@ var render = function () {
                             click: function ($event) {
                               return _vm.generateReport(
                                 0.8,
-                                "Questão 11",
+                                "Na sua opinião, quais as principais dificuldades que você encontra na hora de incluir as ferramentas de marketing digital na sua estratégiacomercial?",
                                 "Não disponho de verba voltada para investir em marketing e vendas"
                               )
                             },
