@@ -20,7 +20,7 @@ class HomepageController extends Controller
         if ($newCandidate) {
             $whatsphone = preg_replace("/[^0-9]/", "", $newCandidate->phone);
             $newCandidate->link = $whatsphone;
-            Mail::to('paulo@heycomunicacao.com.br')->send(new emailTeste($newCandidate));
+            Mail::to('leoagenciahey@gmail.com')->send(new emailTeste($newCandidate));
             return response()->json(['message' => 'Sucesss', 200]);
         } else {
             return;

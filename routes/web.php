@@ -36,6 +36,9 @@ Route::get('/parabens', function () {
 });
 
 Route::post('/register-candidate' , [HomepageController::class , 'create']);
+
+Route::post('/register-quiz' , [QuizController::class , 'create']);
+
 Route::get('/quiz' , [QuizController::class, 'quiz']);
 
 

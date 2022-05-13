@@ -6035,6 +6035,327 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "quizcomponent.vue",
   model: {
@@ -6044,27 +6365,33 @@ __webpack_require__.r(__webpack_exports__);
     return {
       activeStep: 1,
       sum: 0,
-      checkedSocial: [],
-      checkedKnowledge: [],
-      checkedField: []
+      answers: []
     };
   },
   methods: {
-    generateReport: function generateReport() {
+    generateReport: function generateReport(value, option) {
       this.$swal({
         type: "success",
         icon: "info",
         title: "Obrigado por responder nossas perguntas.",
         text: "Aguarde enquanto seu relatório está sendo gerado",
         showConfirmButton: false
-      }).then(this.add());
+      }).then(this.add(value, option));
     },
-    add: function add(value) {
+    add: function add(value, option) {
+      var payload = {
+        answers: this.answers,
+        sum: this.sum
+      };
+
       if (this.activeStep < 11) {
         this.activeStep = this.activeStep + 1;
+        this.answers.push({
+          event: option
+        });
         this.sum += value;
       } else {
-        if (this.sum <= 10) {
+        if (this.sum > 0 || this.sum <= 10) {
           window.setTimeout(function () {
             window.location.href = "/parabens";
           }, 3000);
@@ -6082,6 +6409,8 @@ __webpack_require__.r(__webpack_exports__);
           }, 3000);
         }
       }
+
+      axios.post("/register-quiz", payload);
     },
     remove: function remove() {
       this.activeStep = this.activeStep - 1;
@@ -33995,73 +34324,277 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "site_e_dados_primeira_pagina",
+                            value: "site_e_dados_primeira_pagina",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(
+                                  _vm.answers,
+                                  "site_e_dados_primeira_pagina"
+                                ) > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Site e dados na primeira pagina"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "site_e_dados_primeira_pagina",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "site_e_dados_primeira_pagina" } },
+                          [
+                            _vm._v(
+                              "Seu site e dados na primeira página do Google"
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "dados_basicos",
+                            value: "dados_basicos",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "dados_basicos") > -1
+                              : _vm.answers,
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.add(
+                                2,
+                                "Apenas os dados basicos da empresa"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "dados_basicos",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "dados_basicos" } }, [
                           _vm._v(
-                            "\n              Seu site e dados na primeira página do Google\n            "
+                            "Apenas os dados básicos, endereços, telefone, horário de\n                funcionamento da sua empresa"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "apenas_redes_sociais",
+                            value: "apenas_redes_sociais",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "apenas_redes_sociais") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Apenas as redes sociais")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "apenas_redes_sociais",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Apenas os dados básicos, endereços, telefone, horário de\n              funcionamento da sua empresa\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "apenas_redes_sociais" } },
+                          [_vm._v("Apenas as redes sociais do seu negócio")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "concorrentes_antes",
+                            value: "concorrentes_antes",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "concorrentes_antes") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                3,
+                                "Seus concorrentes nas primeiras posicoes"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "concorrentes_antes",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Apenas as Rede sociais do seu negócio ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "concorrentes_antes" } }, [
+                          _vm._v("Seus concorrentes nas primeiras posições"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_aparece_google",
+                            value: "nao_aparece_google",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_aparece_google") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Sua empresa nao aparece no Google"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_aparece_google",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Seus concorrentes nas primeiras posições ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          on: {
-                            click: function ($event) {
-                              return _vm.add(3)
-                            },
-                          },
-                        },
-                        [_vm._v(" Sua empresa não aparece no Google ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "nao_aparece_google" } }, [
+                          _vm._v("Sua empresa não aparece no Google"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -34091,61 +34624,215 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "funil_24horas",
+                            value: "funil_24horas",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "funil_24horas") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Sim, possuo um funil trabalhando 24 horas por dia"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "funil_24horas",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "funil_24horas" } }, [
                           _vm._v(
-                            "\n              Sim, possuo um funil trabalhando 24 horas por dia\n            "
+                            "Sim, possuo um funil trabalhando 24 horas por dia"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_mas_quero",
+                            value: "nao_mas_quero",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_mas_quero") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Nao, mas pretendo implementar um processo comercial utilizando a internet nos proximos meses"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_mas_quero",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "nao_mas_quero" } }, [
                           _vm._v(
-                            "\n              Não, mas pretendo implementar um processo comercial utilizando a\n              internet nos próximos meses"
+                            "Não, mas pretendo implementar um processo comercial\n                utilizando a internet nos próximos meses"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_vejo_necessidade",
+                            value: "nao_vejo_necessidade",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_vejo_necessidade") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(3, "Nao vejo necessidade")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_vejo_necessidade",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não vejo necessidade atualmente ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "nao_vejo_necessidade" } },
+                          [_vm._v("Não vejo necessidade atualmente")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "oque_e_funil",
+                            value: "oque_e_funil",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "oque_e_funil") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(3, "O que e um funil de vendas")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "oque_e_funil",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" O que é um funil de vendas? ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "oque_e_funil" } }, [
+                          _vm._v("O que é um funil de vendas? "),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -34198,45 +34885,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "physicalretail",
-                            value: "physicalretail",
+                            id: "varejo_fisico",
+                            value: "varejo_fisico",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "physicalretail") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "varejo_fisico") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "physicalretail",
+                                var $$v = "varejo_fisico",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "physicalretail" } }, [
+                        _c("label", { attrs: { for: "varejo_fisico" } }, [
                           _vm._v("Varejo Físico"),
                         ]),
                         _vm._v(" "),
@@ -34245,45 +34931,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "digitalretail",
-                            value: "digitalretail",
+                            id: "varejo_digital",
+                            value: "varejo_digital",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "digitalretail") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "varejo_digital") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "digitalretail",
+                                var $$v = "varejo_digital",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "digitalretail" } }, [
+                        _c("label", { attrs: { for: "varejo_digital" } }, [
                           _vm._v("Varejo Digital"),
                         ]),
                         _vm._v(" "),
@@ -34292,45 +34977,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "technology",
-                            value: "technology",
+                            id: "tecnologia",
+                            value: "tecnologia",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "technology") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "tecnologia") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "technology",
+                                var $$v = "tecnologia",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "technology" } }, [
+                        _c("label", { attrs: { for: "tecnologia" } }, [
                           _vm._v("Tecnologia"),
                         ]),
                         _vm._v(" "),
@@ -34339,92 +35023,92 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "serviceprovider",
-                            value: "serviceprovider",
+                            id: "prestador_de_servico",
+                            value: "prestador_de_servico",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "serviceprovider") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "prestador_de_servico") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "serviceprovider",
+                                var $$v = "prestador_de_servico",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "serviceprovider" } }, [
-                          _vm._v("Prestadora de Serviços"),
-                        ]),
+                        _c(
+                          "label",
+                          { attrs: { for: "prestador_de_servico" } },
+                          [_vm._v("Prestadora de Serviços")]
+                        ),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "industry",
-                            value: "industry",
+                            id: "industria",
+                            value: "industria",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "industry") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "industria") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "industry",
+                                var $$v = "industria",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "industry" } }, [
+                        _c("label", { attrs: { for: "industria" } }, [
                           _vm._v("Indústria"),
                         ]),
                         _vm._v(" "),
@@ -34433,45 +35117,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "agro",
-                            value: "agro",
+                            id: "agronegocios",
+                            value: "agronegocios",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "agro") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "agronegocios") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "agro",
+                                var $$v = "agronegocios",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "agro" } }, [
+                        _c("label", { attrs: { for: "agronegocios" } }, [
                           _vm._v("Agronegócios"),
                         ]),
                         _vm._v(" "),
@@ -34480,45 +35163,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "health",
-                            value: "health",
+                            id: "saude",
+                            value: "saude",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "health") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "saude") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "health",
+                                var $$v = "saude",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "health" } }, [
+                        _c("label", { attrs: { for: "saude" } }, [
                           _vm._v("Saúde"),
                         ]),
                         _vm._v(" "),
@@ -34527,45 +35209,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedField,
-                              expression: "checkedField",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "other",
-                            value: "other",
+                            id: "outro",
+                            value: "outro",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedField)
-                              ? _vm._i(_vm.checkedField, "other") > -1
-                              : _vm.checkedField,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "outro") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedField,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "other",
+                                var $$v = "outro",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedField = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedField = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedField = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "other" } }, [
+                        _c("label", { attrs: { for: "outro" } }, [
                           _vm._v("Outro"),
                         ]),
                       ]),
@@ -34651,45 +35332,44 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checkedSocial,
-                            expression: "checkedSocial",
+                            value: _vm.answers,
+                            expression: "answers",
                           },
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "facebook",
-                          value: "facebook",
+                          id: "Facebook",
+                          value: "Facebook",
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "facebook") > -1
-                            : _vm.checkedSocial,
+                          checked: Array.isArray(_vm.answers)
+                            ? _vm._i(_vm.answers, "Facebook") > -1
+                            : _vm.answers,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.checkedSocial,
+                            var $$a = _vm.answers,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "facebook",
+                              var $$v = "Facebook",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.checkedSocial = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.checkedSocial = $$a
+                                  (_vm.answers = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.checkedSocial = $$c
+                              _vm.answers = $$c
                             }
                           },
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "facebook" } }, [
+                      _c("label", { attrs: { for: "Facebook" } }, [
                         _vm._v("Facebook"),
                       ]),
                       _vm._v(" "),
@@ -34698,8 +35378,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checkedSocial,
-                            expression: "checkedSocial",
+                            value: _vm.answers,
+                            expression: "answers",
                           },
                         ],
                         attrs: {
@@ -34708,29 +35388,28 @@ var render = function () {
                           value: "Instagram",
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "Instagram") > -1
-                            : _vm.checkedSocial,
+                          checked: Array.isArray(_vm.answers)
+                            ? _vm._i(_vm.answers, "Instagram") > -1
+                            : _vm.answers,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.checkedSocial,
+                            var $$a = _vm.answers,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
                               var $$v = "Instagram",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.checkedSocial = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.checkedSocial = $$a
+                                  (_vm.answers = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.checkedSocial = $$c
+                              _vm.answers = $$c
                             }
                           },
                         },
@@ -34745,45 +35424,44 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checkedSocial,
-                            expression: "checkedSocial",
+                            value: _vm.answers,
+                            expression: "answers",
                           },
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "linkedin",
-                          value: "linkedin",
+                          id: "Linkedin",
+                          value: "Linkedin",
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "linkedin") > -1
-                            : _vm.checkedSocial,
+                          checked: Array.isArray(_vm.answers)
+                            ? _vm._i(_vm.answers, "Linkedin") > -1
+                            : _vm.answers,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.checkedSocial,
+                            var $$a = _vm.answers,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "linkedin",
+                              var $$v = "Linkedin",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.checkedSocial = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.checkedSocial = $$a
+                                  (_vm.answers = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.checkedSocial = $$c
+                              _vm.answers = $$c
                             }
                           },
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "linkedin" } }, [
+                      _c("label", { attrs: { for: "Linkedin" } }, [
                         _vm._v("Linkedin"),
                       ]),
                       _vm._v(" "),
@@ -34792,45 +35470,44 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checkedSocial,
-                            expression: "checkedSocial",
+                            value: _vm.answers,
+                            expression: "answers",
                           },
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "twitter",
-                          value: "twitter",
+                          id: "Twitter",
+                          value: "Twitter",
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "twitter") > -1
-                            : _vm.checkedSocial,
+                          checked: Array.isArray(_vm.answers)
+                            ? _vm._i(_vm.answers, "Twitter") > -1
+                            : _vm.answers,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.checkedSocial,
+                            var $$a = _vm.answers,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "twitter",
+                              var $$v = "Twitter",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.checkedSocial = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.checkedSocial = $$a
+                                  (_vm.answers = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.checkedSocial = $$c
+                              _vm.answers = $$c
                             }
                           },
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "twitter" } }, [
+                      _c("label", { attrs: { for: "Twitter" } }, [
                         _vm._v("Twitter"),
                       ]),
                       _vm._v(" "),
@@ -34839,45 +35516,44 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.checkedSocial,
-                            expression: "checkedSocial",
+                            value: _vm.answers,
+                            expression: "answers",
                           },
                         ],
                         attrs: {
                           type: "checkbox",
-                          id: "nosocial",
-                          value: "nosocial",
+                          id: "sem_rede_social",
+                          value: "sem_rede_social",
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.checkedSocial)
-                            ? _vm._i(_vm.checkedSocial, "nosocial") > -1
-                            : _vm.checkedSocial,
+                          checked: Array.isArray(_vm.answers)
+                            ? _vm._i(_vm.answers, "sem_rede_social") > -1
+                            : _vm.answers,
                         },
                         on: {
                           change: function ($event) {
-                            var $$a = _vm.checkedSocial,
+                            var $$a = _vm.answers,
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = "nosocial",
+                              var $$v = "sem_rede_social",
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
-                                $$i < 0 &&
-                                  (_vm.checkedSocial = $$a.concat([$$v]))
+                                $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                               } else {
                                 $$i > -1 &&
-                                  (_vm.checkedSocial = $$a
+                                  (_vm.answers = $$a
                                     .slice(0, $$i)
                                     .concat($$a.slice($$i + 1)))
                               }
                             } else {
-                              _vm.checkedSocial = $$c
+                              _vm.answers = $$c
                             }
                           },
                         },
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "nosocial" } }, [
+                      _c("label", { attrs: { for: "sem_rede_social" } }, [
                         _vm._v("Minha empresa não tem redes sociais"),
                       ]),
                     ]),
@@ -34940,41 +35616,154 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "interacoes_diarias",
+                            value: "interacoes_diarias",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "interacoes_diarias") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "Sim, tenho interacoes diárias")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "interacoes_diarias",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Sim, tenho interações diárias ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "interacoes_diarias" } }, [
+                          _vm._v("Sim, tenho interações diárias"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "interacoes_semanais",
+                            value: "interacoes_semanais",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "interacoes_semanais") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Sim, tenho interacoes diárias")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "interacoes_semanais",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Sim, tenho postagens semanais ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "interacoes_semanais" } }, [
+                          _vm._v("Sim, tenho postagens semanais"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sem_interacoes",
+                            value: "sem_interacoes",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "sem_interacoes") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(3, "Nao estou ativo atualmente")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sem_interacoes",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não estou ativo atualmente ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "sem_interacoes" } }, [
+                          _vm._v("Não estou ativo atualmente"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -35004,45 +35793,163 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "equipe_interna",
+                            value: "equipe_interna",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "equipe_interna") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Sim, tenho uma equipe interna que faz isso"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "equipe_interna",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Sim, tenho uma equipe interna que faz isso\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "equipe_interna" } }, [
+                          _vm._v("Sim, tenho uma equipe interna que faz isso"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "equipe_terceirizada",
+                            value: "equipe_terceirizada",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "equipe_terceirizada") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Sim, tenho esse serviço terceirizado"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "equipe_terceirizada",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Sim, tenho esse serviço terceirizado ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "equipe_terceirizada" } }, [
+                          _vm._v("Sim, tenho esse serviço terceirizado"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sem_equipe",
+                            value: "sem_equipe",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "sem_equipe") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Não, nunca vi nem comi, só ouço falar"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sem_equipe",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não, nunca vi nem comi, só ouço falar ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "sem_equipe" } }, [
+                          _vm._v("Não, nunca vi nem comi, só ouço falar"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -35072,65 +35979,258 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "menos_de_1000",
+                            value: "menos_de_1000",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "menos_de_1000") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Menos de R$ 1.000,00")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "menos_de_1000",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Menos de R$ 1.000,00 ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "menos_de_1000" } }, [
+                          _vm._v("Menos de R$ 1.000,00"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "entre_1000_e_2000",
+                            value: "entre_1000_e_2000",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "entre_1000_e_2000") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Menos de R$ 1.000,00")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "entre_1000_e_2000",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Entre R$ 1.000,00 e R$ 2.000,00")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "entre_1000_e_2000" } }, [
+                          _vm._v("Entre R$ 1.000,00 e R$ 2.000,00"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "acima_de_2000",
+                            value: "acima_de_2000",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "acima_de_2000") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "Menos de R$ 1.000,00")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "acima_de_2000",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Acima de R$ 2.000,00 ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "acima_de_2000" } }, [
+                          _vm._v("Acima de R$ 2.000,00"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_sei_fazer",
+                            value: "nao_sei_fazer",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_sei_fazer") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Não invisto porque não sei como fazer"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_sei_fazer",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não invisto porque não sei como fazer ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "nao_sei_fazer" } }, [
+                          _vm._v("Não invisto porque não sei como fazer"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_acredito",
+                            value: "nao_acredito",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_acredito") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(
+                                3,
+                                "Não invisto porque não acredito"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_acredito",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não invisto porque não acredito ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "nao_acredito" } }, [
+                          _vm._v("Não invisto porque não acredito"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -35183,45 +36283,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "paidLinks",
-                            value: "paidLinks",
+                            id: "Links_Patrocinados",
+                            value: "Links_Patrocinados",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "paidLinks") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "Links_Patrocinados") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "paidLinks",
+                                var $$v = "Links_Patrocinados",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "paidLinks" } }, [
+                        _c("label", { attrs: { for: "Links_Patrocinados" } }, [
                           _vm._v("Links patrocinados"),
                         ]),
                         _vm._v(" "),
@@ -35230,45 +36329,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "emailfunnel",
-                            value: "emailfunnel",
+                            id: "Funil_Email",
+                            value: "Funil_Email",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "emailfunnel") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "Funil_Email") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "emailfunnel",
+                                var $$v = "Funil_Email",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "emailfunnel" } }, [
+                        _c("label", { attrs: { for: "Funil_Email" } }, [
                           _vm._v("Funil de email"),
                         ]),
                         _vm._v(" "),
@@ -35277,45 +36375,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "marketing",
-                            value: "marketing",
+                            id: "Marketing",
+                            value: "Marketing",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "marketing") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "Marketing") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "marketing",
+                                var $$v = "Marketing",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "marketing" } }, [
+                        _c("label", { attrs: { for: "Marketing" } }, [
                           _vm._v("Inbound Marketing"),
                         ]),
                         _vm._v(" "),
@@ -35324,86 +36421,84 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
-                          attrs: { type: "checkbox", id: "seo", value: "seo" },
+                          attrs: { type: "checkbox", id: "SEO", value: "SEO" },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "seo") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "SEO") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "seo",
+                                var $$v = "SEO",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "seo" } }, [_vm._v("SEO")]),
+                        _c("label", { attrs: { for: "SEO" } }, [_vm._v("SEO")]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "branding",
-                            value: "branding",
+                            id: "Branding",
+                            value: "Branding",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "branding") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "Branding") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "branding",
+                                var $$v = "Branding",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "branding" } }, [
+                        _c("label", { attrs: { for: "Branding" } }, [
                           _vm._v("Branding"),
                         ]),
                         _vm._v(" "),
@@ -35412,45 +36507,44 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.checkedKnowledge,
-                              expression: "checkedKnowledge",
+                              value: _vm.answers,
+                              expression: "answers",
                             },
                           ],
                           attrs: {
                             type: "checkbox",
-                            id: "noknowledge",
-                            value: "noknowledge",
+                            id: "Nenhum",
+                            value: "Nenhum",
                           },
                           domProps: {
-                            checked: Array.isArray(_vm.checkedKnowledge)
-                              ? _vm._i(_vm.checkedKnowledge, "noknowledge") > -1
-                              : _vm.checkedKnowledge,
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "Nenhum") > -1
+                              : _vm.answers,
                           },
                           on: {
                             change: function ($event) {
-                              var $$a = _vm.checkedKnowledge,
+                              var $$a = _vm.answers,
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = "noknowledge",
+                                var $$v = "Nenhum",
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
-                                  $$i < 0 &&
-                                    (_vm.checkedKnowledge = $$a.concat([$$v]))
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
                                 } else {
                                   $$i > -1 &&
-                                    (_vm.checkedKnowledge = $$a
+                                    (_vm.answers = $$a
                                       .slice(0, $$i)
                                       .concat($$a.slice($$i + 1)))
                                 }
                               } else {
-                                _vm.checkedKnowledge = $$c
+                                _vm.answers = $$c
                               }
                             },
                           },
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: "noknowledge" } }, [
+                        _c("label", { attrs: { for: "Nenhum" } }, [
                           _vm._v("Nenhum"),
                         ]),
                       ]),
@@ -35514,65 +36608,248 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "menos_de_10",
+                            value: "menos_de_10",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "menos_de_10") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(3, "Menos de 10%")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "menos_de_10",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Menos de 10% ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "menos_de_10" } }, [
+                          _vm._v("Menos de 10%"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "ate_30",
+                            value: "ate_30",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "ate_30") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Até 30%")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "ate_30",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Até 30% ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "ate_30" } }, [
+                          _vm._v("Até 30%"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "ate_50",
+                            value: "ate_50",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "ate_50") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(2, "Até 50%")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "ate_50",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Até 50% ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "ate_50" } }, [
+                          _vm._v("Até 50%"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "mais_de_50",
+                            value: "mais_de_50",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "mais_de_50") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "Mais de 50%")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "mais_de_50",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Mais de 50% ")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "mais_de_50" } }, [
+                          _vm._v("Mais de 50%"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: { type: "checkbox", id: "100", value: "100" },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "100") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(1, "100%")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "100",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" 100% ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "100" } }, [
+                          _vm._v("100%"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -35602,65 +36879,227 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sim_site_otimizado",
+                            value: "sim_site_otimizado",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "sim_site_otimizado") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(1)
+                              return _vm.add(
+                                1,
+                                "Sim, meu site tem menos de um ano e está otimizado"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sim_site_otimizado",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "sim_site_otimizado" } }, [
                           _vm._v(
-                            "\n              Sim, meu site tem menos de um ano e está otimizado\n            "
+                            "Sim, meu site tem menos de um ano e está otimizado"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "site_mais_de_2_anos",
+                            value: "site_mais_de_2_anos",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "site_mais_de_2_anos") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Acredito que sim, mas meu site já tem mais de dois anos"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "site_mais_de_2_anos",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "site_mais_de_2_anos" } }, [
                           _vm._v(
-                            "\n              Acredito que sim, mas meu site já tem mais de dois anos\n            "
+                            "Acredito que sim, mas meu site já tem mais de dois\n                anos"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "site_mais_de_2_anos_desatualizado",
+                            value: "site_mais_de_2_anos_desatualizado",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(
+                                  _vm.answers,
+                                  "site_mais_de_2_anos_desatualizado"
+                                ) > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(2)
+                              return _vm.add(
+                                2,
+                                "Meu site tem mais de dois anos e possivelmente está desatualizado"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "site_mais_de_2_anos_desatualizado",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Meu site tem mais de dois anos e possivelmente está\n              desatualizado\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            attrs: { for: "site_mais_de_2_anos_desatualizado" },
+                          },
+                          [
+                            _vm._v(
+                              "Meu site tem mais de dois anos e possivelmente está\n                desatualizado"
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_tenho_site",
+                            value: "nao_tenho_site",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_tenho_site") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.add(3)
+                              return _vm.add(3, "Não possuo site atualmente")
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_tenho_site",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [_vm._v(" Não possuo site atualmente ")]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "nao_tenho_site" } }, [
+                          _vm._v("Não possuo site atualmente"),
+                        ]),
+                      ]),
                     ]),
                   ]
                 ),
@@ -35690,85 +37129,288 @@ var render = function () {
                   },
                   [
                     _c("form", { staticStyle: { display: "inline-grid" } }, [
-                      _c(
-                        "a",
-                        {
+                      _c("div", { staticClass: "row" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sem_tempo",
+                            value: "sem_tempo",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "sem_tempo") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.5)
+                              return _vm.generateReport(
+                                0.5,
+                                "Eu não tenho tempo, e acabo perdendo dinheiro por não implementar nada"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sem_tempo",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "sem_tempo" } }, [
                           _vm._v(
-                            "\n              Eu não tenho tempo, e acabo perdendo dinheiro por não\n              implementar nada\n            "
+                            "Eu não tenho tempo, e acabo perdendo dinheiro por não\n                implementar nada"
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sem_mao_de_obra",
+                            value: "sem_mao_de_obra",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "sem_mao_de_obra") > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.5)
+                              return _vm.generateReport(
+                                0.5,
+                                "Não encontro mão de obra especializada."
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sem_mao_de_obra",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Não encontro mão de obra especializada.\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "sem_mao_de_obra" } }, [
+                          _vm._v("Não encontro mão de obra especializada."),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_preciso_vender_mais",
+                            value: "nao_preciso_vender_mais",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_preciso_vender_mais") >
+                                -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.6)
+                              return _vm.generateReport(
+                                0.6,
+                                "Não preciso vender mais pela internet"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_preciso_vender_mais",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Não preciso vender mais pela internet\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "nao_preciso_vender_mais" } },
+                          [_vm._v("Não preciso vender mais pela internet")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "nao_preciso_vender_mais",
+                            value: "nao_preciso_vender_mais",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(_vm.answers, "nao_preciso_vender_mais") >
+                                -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.6)
+                              return _vm.generateReport(
+                                0.6,
+                                "Não tenho dificuldades, estou ganhando dinheiro utilizando o marketing como estratégia comercial"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "nao_preciso_vender_mais",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Não tenho dificuldades, estou ganhando dinheiro utilizando o\n              marketing como parte da minha estratégia comercial\n            "
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "nao_preciso_vender_mais" } },
+                          [
+                            _vm._v(
+                              "\n                Não tenho dificuldades, estou ganhando dinheiro utilizando o\n                marketing como parte da minha estratégia comercial"
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.answers,
+                              expression: "answers",
+                            },
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "sem_dinheiro_para_investir",
+                            value: "sem_dinheiro_para_investir",
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.answers)
+                              ? _vm._i(
+                                  _vm.answers,
+                                  "sem_dinheiro_para_investir"
+                                ) > -1
+                              : _vm.answers,
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.generateReport(0.8)
+                              return _vm.generateReport(
+                                0.8,
+                                "Não disponho de verba voltada para investir em marketing e vendas"
+                              )
+                            },
+                            change: function ($event) {
+                              var $$a = _vm.answers,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = "sem_dinheiro_para_investir",
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.answers = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.answers = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.answers = $$c
+                              }
                             },
                           },
-                        },
-                        [
-                          _vm._v(
-                            "\n              Não disponho de verba voltada para investir em marketing e\n              vendas\n            "
-                          ),
-                        ]
-                      ),
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "sem_dinheiro_para_investir" } },
+                          [
+                            _vm._v(
+                              "\n                Não disponho de verba voltada para investir em marketing e\n                vendas"
+                            ),
+                          ]
+                        ),
+                      ]),
                     ]),
                   ]
                 ),
