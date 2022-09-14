@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col" style="align-self: self-end; padding-bottom: 5%">
+      <div class="col" style="align-self: center; padding-bottom: 5%">
         <h1>
           Sua empresa está preparada para <span>faturar mais</span> em 2022?
         </h1>
