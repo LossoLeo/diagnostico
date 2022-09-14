@@ -40,7 +40,7 @@
 
     @media only screen and (min-width: 320px) {
         body {
-            /*background-image: url("img/bg_homepage.png");*/
+            background-image: url("img/Opção 1.png");
             background-color: #21222a;
             background-repeat: no-repeat;
             background-position: top left;
@@ -68,7 +68,7 @@
 
         .login-box p {
             padding-bottom: 5px;
-            color: #21222a;
+            color: #ffffff;
             text-align: left;
         }
 
@@ -109,7 +109,7 @@
         .col h1 {
             color: #ffffff;
             text-align: left;
-            font-size: 35px;
+            font-size: 60px;
             font-weight: 500;
             padding-top: 20%;
             padding-left: 3%;
@@ -130,7 +130,7 @@
 
         .col span {
             color: #ff5858;
-            font-size: 35px;
+            font-size: 60px;
         }
 
         /* AQUI TERMINA O TESTE*/
@@ -139,7 +139,7 @@
 
     @media only screen and (min-width: 1350px) {
         body {
-            background-image: url("img/bg_homepage.png");
+            /*background-image: url("img/bg_homepage.png");*/
             background-repeat: no-repeat;
             background-size: cover;
             height: 100%;
@@ -164,7 +164,7 @@
 
         .login-box p {
             padding-bottom: 5px;
-            color: #21222a;
+            color: #ffffff;
             text-align: left;
         }
 
@@ -205,7 +205,7 @@
         .col h1 {
             color: #ffffff;
             text-align: left;
-            font-size: 50px;
+            font-size: 60px;
             font-weight: 500;
             letter-spacing: 0.7px;
             padding-left: 25%;
@@ -219,7 +219,7 @@
 
         .col span {
             color: #ff5858;
-            font-size: 50px;
+            font-size: 60px;
         }
 
 
@@ -232,8 +232,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6V55RG" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header style="height: 30px; padding-left: 100px; padding-top: 15px">
-        <a href="/"><img src="{{ asset('img/Logo.png') }}" alt="" /></a>
+    <header style="height: 30px; padding-left: 100px; padding-top: 50px">
+        <a href="/"></a>
     </header>
     <div id="app">
         @yield('content')

@@ -34281,7 +34281,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "col",
-        staticStyle: { "align-self": "self-end", "padding-bottom": "5%" },
+        staticStyle: { "align-self": "center", "padding-bottom": "5%" },
       },
       [
         _c("h1", [
