@@ -22,7 +22,7 @@ class QuizController extends Controller
         $whatsphone = preg_replace("/[^0-9]/", "", $request->user['phone']);
         $link = $whatsphone;
 
-        Mail::to('paulo@heycomunicacao.com.br')->send(
+        Mail::to('maiconcury@agenciahey.com.br')->send(
             new emailTeste(
                 $request->user,
                 $request->sector,
