@@ -3,15 +3,14 @@
     <div class="row">
       <div class="col" style="align-self: center; padding-bottom: 5%">
         <h1>
-          Sua empresa está preparada para <span>faturar mais</span> em 2022?
+          Sua empresa está preparada para <span>faturar mais?</span>
         </h1>
       </div>
       <div class="col" style="text-align: -webkit-center">
         <div class="login-box" style="padding-top: 15%">
           <h2>Diagnóstico grátis</h2>
           <h5>
-            Descubra em poucos minutos como está o Marketing Digital da sua
-            empresa e o que fazer para alavancar suas vendas em 2022
+ Descubra em poucos minutos como está o Marketing Digital da sua empresa e o que fazer para alavancar as suas vendas.
           </h5>
           <div class="user-box">
             <input
